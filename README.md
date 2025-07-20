@@ -11,14 +11,17 @@ This repository contains two implementations:
 
 ## Latest Release
 
-**v2.3.1** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.3.1/MinimalGoogleAuto-v2.3.1.apk)
+**v2.3.2** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.3.2/MinimalGoogleAuto-v2.3.2.apk)
 
 New in this version:
-- Fixed "Required permission not granted" error when connecting to car
-- Improved permission handling with better error messages
-- Added automatic redirection to app settings when permissions are missing
-- Enhanced error recovery for USB connections
-- Added better error handling for car connection issues
+- Fixed "Required permission not granted" error with improved permission handling
+- Added support for Android 13+ (API 33+) permissions
+- Added USB permission handling for car connections
+- Added detailed error messages showing exactly which permissions are missing
+- Enhanced permission checking with automatic connection retry
+- Added support for BLUETOOTH_SCAN permission
+- Added support for READ_MEDIA_AUDIO and READ_MEDIA_IMAGES permissions
+- Added support for NEARBY_WIFI_DEVICES permission
 - Fixed app recognition for apps installed via Aurora Store (not just Google Play)
 - Added support for alternative messaging apps (WhatsApp Business, Signal, QKSMS, etc.)
 - Added support for Yale Access app as an alternative to August Lock
@@ -26,7 +29,7 @@ New in this version:
 - Enhanced privacy controls for third-party apps
 - Bug fixes and UI enhancements
 
-**Note:** This version includes important fixes for permission handling and car connectivity issues.
+**Note:** This version includes important fixes for permission handling on newer Android versions.
 
 ## Features
 
@@ -61,14 +64,16 @@ New in this version:
 7. Tap "Connect to Car" to connect to your car's head unit display
 
 **Troubleshooting Connection Issues:**
-- If you see "Required permission not granted" error:
-  1. The app will automatically open your device settings
-  2. Go to Permissions and grant ALL permissions (Location, Storage, Contacts, Phone, etc.)
-  3. Return to the app and try connecting again
-- If you see "No installed apps work with this USB accessory" error:
-  1. Disconnect and reconnect your phone to the car's USB port
-  2. Try a different USB cable if available
-  3. For Nissan Pathfinder owners: Make sure to use the USB port labeled for phone connection, not the media-only port
+- If you see "Missing permissions" error:
+  1. The app will now show exactly which permissions are missing
+  2. Go to Settings > Apps > DegoogledAndroidAuto > Permissions
+  3. Grant ALL permissions shown in the error message
+  4. Return to the app and try connecting again
+- If you see "USB permission required" message:
+  1. Tap "Allow" when prompted for USB permission
+  2. If not prompted, disconnect and reconnect your phone to the car's USB port
+  3. Try a different USB cable if available
+- For Nissan Pathfinder owners: Make sure to use the USB port labeled for phone connection, not the media-only port
 
 ## Usage
 
