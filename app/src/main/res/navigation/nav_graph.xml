@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.degoogled.androidauto.ui.home.HomeFragment"
+        android:label="Home"
+        tools:layout="@layout/fragment_home">
+        <action
+            android:id="@+id/action_home_to_navigation"
+            app:destination="@id/navigationFragment" />
+        <action
+            android:id="@+id/action_home_to_media"
+            app:destination="@id/mediaFragment" />
+        <action
+            android:id="@+id/action_home_to_messaging"
+            app:destination="@id/messagingFragment" />
+        <action
+            android:id="@+id/action_home_to_settings"
+            app:destination="@id/settingsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/navigationFragment"
+        android:name="com.degoogled.androidauto.ui.navigation.NavigationFragment"
+        android:label="@string/navigation_title"
+        tools:layout="@layout/fragment_navigation">
+        <action
+            android:id="@+id/action_navigation_to_search"
+            app:destination="@id/searchDestinationFragment" />
+        <action
+            android:id="@+id/action_navigation_to_route_options"
+            app:destination="@id/routeOptionsFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/mediaFragment"
+        android:name="com.degoogled.androidauto.ui.media.MediaFragment"
+        android:label="@string/media_player"
+        tools:layout="@layout/fragment_media">
+        <action
+            android:id="@+id/action_media_to_browse"
+            app:destination="@id/browseMusicFragment" />
+        <action
+            android:id="@+id/action_media_to_now_playing"
+            app:destination="@id/nowPlayingFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/messagingFragment"
+        android:name="com.degoogled.androidauto.ui.messaging.MessagingFragment"
+        android:label="@string/messaging"
+        tools:layout="@layout/fragment_messaging">
+        <action
+            android:id="@+id/action_messaging_to_conversation"
+            app:destination="@id/conversationFragment" />
+    </fragment>
+
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.degoogled.androidauto.ui.settings.SettingsFragment"
+        android:label="@string/settings"
+        tools:layout="@layout/fragment_settings" />
+
+    <fragment
+        android:id="@+id/searchDestinationFragment"
+        android:name="com.degoogled.androidauto.ui.navigation.SearchDestinationFragment"
+        android:label="@string/search_destination"
+        tools:layout="@layout/fragment_search_destination" />
+
+    <fragment
+        android:id="@+id/routeOptionsFragment"
+        android:name="com.degoogled.androidauto.ui.navigation.RouteOptionsFragment"
+        android:label="Route Options"
+        tools:layout="@layout/fragment_route_options" />
+
+    <fragment
+        android:id="@+id/browseMusicFragment"
+        android:name="com.degoogled.androidauto.ui.media.BrowseMusicFragment"
+        android:label="@string/browse_music"
+        tools:layout="@layout/fragment_browse_music" />
+
+    <fragment
+        android:id="@+id/nowPlayingFragment"
+        android:name="com.degoogled.androidauto.ui.media.NowPlayingFragment"
+        android:label="@string/now_playing"
+        tools:layout="@layout/fragment_now_playing" />
+
+    <fragment
+        android:id="@+id/conversationFragment"
+        android:name="com.degoogled.androidauto.ui.messaging.ConversationFragment"
+        android:label="Conversation"
+        tools:layout="@layout/fragment_conversation" />
+
+</navigation>
