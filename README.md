@@ -2,6 +2,13 @@
 
 A privacy-focused, open source Android Auto alternative that doesn't rely on Google services or proprietary code.
 
+## Versions
+
+This repository contains two implementations:
+
+1. **Fully Degoogled Version**: Zero Google dependencies, runs as a standalone app on your phone
+2. **Minimal Google Version**: Uses minimal Google dependencies to connect with your car's head unit display
+
 ## Features
 
 - **Privacy-First Navigation**: Uses OpenStreetMap for maps and routing without tracking
@@ -10,14 +17,26 @@ A privacy-focused, open source Android Auto alternative that doesn't rely on Goo
 - **Secure Messaging**: Matrix protocol integration for private, encrypted messaging
 - **Driver-Friendly UI**: Large touch targets, dark mode, and minimal distractions
 - **Works Offline**: All core features function without an internet connection
-- **No Google Dependencies**: Zero Google libraries, services, or APIs
+- **Minimal Google Dependencies**: Only essential Google components for car connectivity in the Minimal Google version
 
 ## Installation
+
+### Fully Degoogled Version
 
 1. Download the latest APK from the [Releases](https://github.com/jacks4ever/DegoogledAndroidAuto/releases) page
 2. Enable "Install from Unknown Sources" in your Android settings
 3. Install the APK
 4. Grant the requested permissions when prompted
+
+### Minimal Google Version
+
+1. Download the Minimal Google Auto APK from the [Releases](https://github.com/jacks4ever/DegoogledAndroidAuto/releases) page
+2. Enable "Install from Unknown Sources" in your Android settings
+3. Install the APK
+4. Grant the requested permissions when prompted
+5. Connect your phone to your car's USB port or use wireless connection if supported
+6. Enable Privacy Mode in the app settings
+7. Tap "Connect to Car" to connect to your car's head unit display
 
 ## Usage
 
@@ -46,11 +65,23 @@ A privacy-focused, open source Android Auto alternative that doesn't rely on Goo
 
 ## Privacy & Security
 
+### Fully Degoogled Version
+
 - **No Data Collection**: The app does not collect or transmit any usage data
 - **Minimal Permissions**: Only requests permissions essential for functionality
 - **Local Processing**: Voice commands and navigation calculations happen on-device
 - **Open Source**: All code is available for review and verification
 - **End-to-End Encryption**: Messaging uses Matrix protocol's encryption
+- **Zero Google Dependencies**: No Google libraries, services, or APIs
+
+### Minimal Google Version
+
+- **Isolation Layer**: All Google components are isolated in a proxy layer
+- **Network Filtering**: Blocks all analytics, tracking, and non-essential API calls
+- **Minimal Authentication**: Uses only essential Google authentication for the Android Auto protocol
+- **Local Processing**: All voice commands are processed locally
+- **Network Monitoring**: Monitors and logs all network requests
+- **Privacy Mode**: Master switch for all privacy features
 
 ## Building from Source
 
@@ -86,4 +117,10 @@ This project is licensed under the GNU General Public License v3.0 - see the LIC
 - [OSMDroid](https://github.com/osmdroid/osmdroid) for map rendering
 - [Vosk](https://alphacephei.com/vosk/) for offline speech recognition
 - [Matrix.org](https://matrix.org/) for the messaging protocol
+- [OpenAuto](https://github.com/f1xpl/openauto) for Android Auto protocol research
 - All other open source projects that made this possible
+
+## Branches
+
+- `main`: Contains the fully degoogled version
+- `minimal-google-auto`: Contains the minimal Google version that works with car head units
