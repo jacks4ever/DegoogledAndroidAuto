@@ -9,6 +9,7 @@ Minimal Google Auto is designed to work with your car's head unit display while 
 ### Features
 
 - **Navigation**: Uses OpenStreetMap for maps and routing
+- **Waze Integration**: Privacy-focused Waze navigation with analytics blocking
 - **Voice Assistant**: Offline voice recognition with Vosk
 - **Media Playback**: Local and streaming media playback with ExoPlayer
 - **Messaging**: Matrix protocol for secure messaging
@@ -55,6 +56,7 @@ This app takes a unique approach to privacy:
 - **Minimal Authentication**: Uses only essential Google authentication
 - **Offline Mode**: Uses only offline features (requires downloaded maps)
 - **Network Monitoring**: Monitors and logs all network requests
+- **Waze Privacy Protection**: Blocks Waze analytics and tracking while allowing essential navigation features
 
 ## Technical Details
 
@@ -76,6 +78,7 @@ This app uses only these Google components:
 - Network security policy enforces HTTPS for all connections
 - Domain pinning for essential Google domains
 - Blocking of known analytics and tracking domains
+- Waze-specific network filtering to block non-essential requests
 
 ## Building from Source
 
@@ -90,6 +93,7 @@ This project is licensed under the GNU General Public License v3.0 - see the LIC
 ## Acknowledgements
 
 - [OSMDroid](https://github.com/osmdroid/osmdroid) for map rendering
+- [Waze](https://www.waze.com/) for navigation data (with privacy protections)
 - [Vosk](https://alphacephei.com/vosk/) for offline voice recognition
 - [ExoPlayer](https://github.com/google/ExoPlayer) for media playback
 - [Matrix SDK](https://github.com/matrix-org/matrix-android-sdk2) for messaging

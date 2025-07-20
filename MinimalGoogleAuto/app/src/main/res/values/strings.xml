@@ -19,6 +19,18 @@
     <string name="current_location">Current location</string>
     <string name="start_navigation">Start navigation</string>
     <string name="stop_navigation">Stop navigation</string>
+    <string name="osm_maps">OpenStreetMap</string>
+    <string name="waze">Waze</string>
+    <string name="waze_navigation">Waze Navigation</string>
+    <string name="waze_description">Use Waze for navigation with privacy protections enabled. All analytics and tracking will be blocked while maintaining full navigation functionality.</string>
+    <string name="waze_privacy_protection">Waze Privacy Protection</string>
+    <string name="waze_privacy_description">Block Waze analytics and tracking while allowing essential navigation features</string>
+    <string name="launch_waze">Launch Waze Navigation</string>
+    <string name="waze_not_installed">Waze is not installed</string>
+    <string name="waze_installed">Waze is installed</string>
+    <string name="install_waze">Install Waze</string>
+    <string name="waze_privacy_enabled">Privacy protection enabled</string>
+    <string name="waze_privacy_disabled">Privacy protection disabled</string>
     
     <!-- Media -->
     <string name="media">Media</string>

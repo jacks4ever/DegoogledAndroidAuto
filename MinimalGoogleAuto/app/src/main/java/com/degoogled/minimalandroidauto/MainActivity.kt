@@ -10,6 +10,7 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.degoogled.minimalandroidauto.databinding.ActivityMainBinding
+import com.degoogled.minimalandroidauto.navigation.NavigationActivity
 import com.degoogled.minimalandroidauto.network.NetworkMonitoringService
 import com.degoogled.minimalandroidauto.proxy.MinimalAutoService
 import com.degoogled.minimalandroidauto.utils.PrivacyPreferences
@@ -73,6 +74,19 @@ class MainActivity : AppCompatActivity() {
         binding.buttonSettings.setOnClickListener {
             // TODO: Navigate to settings screen
             Toast.makeText(this, "Settings not implemented yet", Toast.LENGTH_SHORT).show()
+        }
+        
+        // Set up navigation buttons
+        binding.buttonOpenStreetMap.setOnClickListener {
+            val intent = Intent(this, NavigationActivity::class.java)
+            intent.putExtra(NavigationActivity.EXTRA_NAVIGATION_TAB, NavigationActivity.TAB_OSM)
+            startActivity(intent)
+        }
+        
+        binding.buttonWaze.setOnClickListener {
+            val intent = Intent(this, NavigationActivity::class.java)
+            intent.putExtra(NavigationActivity.EXTRA_NAVIGATION_TAB, NavigationActivity.TAB_WAZE)
+            startActivity(intent)
         }
 
         // Start network monitoring service

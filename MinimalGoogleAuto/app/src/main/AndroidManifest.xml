@@ -58,6 +58,12 @@
             </intent-filter>
         </activity>
         
+        <!-- Navigation Activity -->
+        <activity
+            android:name=".navigation.NavigationActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+        
         <!-- Android Auto Service -->
         <service
             android:name=".proxy.MinimalAutoService"

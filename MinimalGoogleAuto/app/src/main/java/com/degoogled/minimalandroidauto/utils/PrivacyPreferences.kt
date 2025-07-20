@@ -13,6 +13,7 @@ object PrivacyPreferences {
     private const val KEY_MINIMAL_AUTH = "minimal_auth"
     private const val KEY_OFFLINE_MODE = "offline_mode"
     private const val KEY_NETWORK_MONITORING = "network_monitoring"
+    private const val KEY_WAZE_PRIVACY = "waze_privacy"
 
     /**
      * Get the shared preferences instance
@@ -89,5 +90,19 @@ object PrivacyPreferences {
      */
     fun setNetworkMonitoringEnabled(context: Context, enabled: Boolean) {
         getPreferences(context).edit().putBoolean(KEY_NETWORK_MONITORING, enabled).apply()
+    }
+    
+    /**
+     * Check if Waze privacy protection is enabled
+     */
+    fun isWazePrivacyEnabled(context: Context): Boolean {
+        return getPreferences(context).getBoolean(KEY_WAZE_PRIVACY, true)
+    }
+    
+    /**
+     * Set Waze privacy protection enabled/disabled
+     */
+    fun setWazePrivacyEnabled(context: Context, enabled: Boolean) {
+        getPreferences(context).edit().putBoolean(KEY_WAZE_PRIVACY, enabled).apply()
     }
 }

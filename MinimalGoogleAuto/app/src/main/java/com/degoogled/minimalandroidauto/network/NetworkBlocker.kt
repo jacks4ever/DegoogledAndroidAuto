@@ -2,6 +2,7 @@ package com.degoogled.minimalandroidauto.network
 
 import android.content.Context
 import android.util.Log
+import com.degoogled.minimalandroidauto.navigation.waze.WazeNetworkFilter
 import com.degoogled.minimalandroidauto.utils.PrivacyPreferences
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -83,7 +84,9 @@ class NetworkBlocker private constructor(private val context: Context) {
             if (PrivacyPreferences.isPrivacyModeEnabled(context)) {
                 // Block analytics domains
                 if (PrivacyPreferences.isAnalyticsBlockingEnabled(context) && 
-                    BLOCKED_DOMAINS.any { host.contains(it) }) {
+                    (BLOCKED_DOMAINS.any { host.contains(it) } ||
+                    (PrivacyPreferences.isWazePrivacyEnabled(context) && 
+                     WazeNetworkFilter.getBlockedDomains().any { host.contains(it) }))) {
                     Log.d(TAG, "Blocking request to: $url")
                     return@Interceptor createEmptyResponse(chain)
                 }
@@ -97,6 +100,16 @@ class NetworkBlocker private constructor(private val context: Context) {
                             Log.d(TAG, "Blocking non-auth Google request: $url")
                             return@Interceptor createEmptyResponse(chain)
                         }
+                    }
+                }
+                
+                // Allow essential Waze domains if Waze privacy is enabled
+                if (PrivacyPreferences.isWazePrivacyEnabled(context) &&
+                    !WazeNetworkFilter.getEssentialDomains().any { host.contains(it) }) {
+                    // Block non-essential Waze requests
+                    if (host.contains("waze")) {
+                        Log.d(TAG, "Blocking non-essential Waze request: $url")
+                        return@Interceptor createEmptyResponse(chain)
                     }
                 }
 
