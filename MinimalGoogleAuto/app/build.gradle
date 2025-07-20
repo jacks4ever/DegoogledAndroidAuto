@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId "com.degoogled.minimalandroidauto"
-        minSdkVersion 24
+        minSdkVersion 26
         targetSdkVersion 33
         versionCode 1
         versionName "1.0.0"
@@ -82,7 +82,10 @@ dependencies {
     implementation 'com.alphacephei:vosk-android:0.3.47'
     
     // Matrix SDK for messaging
-    implementation 'org.matrix.android:matrix-sdk-android:1.5.10'
+    // implementation 'org.matrix.android:matrix-sdk-android:1.5.10'
+    // Using a placeholder for Matrix SDK since it's not available in the repository
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
     
     // Network monitoring and filtering
     implementation 'com.squareup.okhttp3:okhttp:4.10.0'

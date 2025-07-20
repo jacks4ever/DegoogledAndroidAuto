@@ -1,0 +1,3 @@
+Degoogled Android Auto
+Version 1.0.0
+Copyright 2025

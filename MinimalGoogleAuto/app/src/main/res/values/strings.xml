@@ -12,6 +12,8 @@
     <string name="not_connected">Not Connected</string>
     <string name="connected">Connected</string>
     <string name="connecting">Connecting…</string>
+    <string name="features">Features</string>
+    <string name="home_automation">Home Automation</string>
     
     <!-- Navigation -->
     <string name="navigation">Navigation</string>
@@ -51,6 +53,19 @@
     <string name="new_message">New message</string>
     <string name="reply">Reply</string>
     <string name="send">Send</string>
+    <string name="whatsapp">WhatsApp</string>
+    <string name="microsoft_teams">Microsoft Teams</string>
+    <string name="handcent_sms">Handcent SMS</string>
+    <string name="installed">Installed</string>
+    <string name="not_installed">Not Installed</string>
+    <string name="privacy_protection">Privacy Protection</string>
+    <string name="launch_whatsapp">Launch WhatsApp</string>
+    <string name="install_whatsapp">Install WhatsApp</string>
+    <string name="launch_teams">Launch Teams</string>
+    <string name="install_teams">Install Teams</string>
+    <string name="launch_handcent">Launch Handcent</string>
+    <string name="install_handcent">Install Handcent</string>
+    <string name="back">Back</string>
     
     <!-- Settings -->
     <string name="settings">Settings</string>
@@ -70,6 +85,14 @@
     <string name="notification_channel_media">Media Playback</string>
     <string name="notification_channel_messaging">Messaging</string>
     <string name="notification_channel_voice">Voice Assistant</string>
+    
+    <!-- Home Automation -->
+    <string name="august_lock">August Lock</string>
+    <string name="launch_august">Launch August</string>
+    <string name="install_august">Install August</string>
+    <string name="lock_door">Lock Door</string>
+    <string name="unlock_door">Unlock Door</string>
+    <string name="view_activity">View Activity</string>
     
     <!-- Error Messages -->
     <string name="error_connection_failed">Connection to car failed</string>

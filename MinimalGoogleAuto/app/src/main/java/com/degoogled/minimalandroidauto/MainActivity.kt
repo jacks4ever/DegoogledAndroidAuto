@@ -10,6 +10,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import com.degoogled.minimalandroidauto.databinding.ActivityMainBinding
+import com.degoogled.minimalandroidauto.home.HomeActivity
+import com.degoogled.minimalandroidauto.messaging.MessagingActivity
 import com.degoogled.minimalandroidauto.navigation.NavigationActivity
 import com.degoogled.minimalandroidauto.network.NetworkMonitoringService
 import com.degoogled.minimalandroidauto.proxy.MinimalAutoService
@@ -86,6 +88,17 @@ class MainActivity : AppCompatActivity() {
         binding.buttonWaze.setOnClickListener {
             val intent = Intent(this, NavigationActivity::class.java)
             intent.putExtra(NavigationActivity.EXTRA_NAVIGATION_TAB, NavigationActivity.TAB_WAZE)
+            startActivity(intent)
+        }
+        
+        // Set up messaging and home automation buttons
+        binding.buttonMessaging.setOnClickListener {
+            val intent = Intent(this, MessagingActivity::class.java)
+            startActivity(intent)
+        }
+        
+        binding.buttonHome.setOnClickListener {
+            val intent = Intent(this, HomeActivity::class.java)
             startActivity(intent)
         }
 

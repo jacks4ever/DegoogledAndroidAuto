@@ -17,7 +17,8 @@ allprojects {
         mavenCentral()
         maven { url 'https://jitpack.io' }
         google() // Required for some Android dependencies, but we'll avoid Google APIs
-        maven { url 'https://maven.openstreetmap.org/repository/releases' } // For OSM dependencies
+        maven { url 'https://repo1.maven.org/maven2/' } // Maven Central mirror
+        maven { url 'https://maven.geotoolkit.org/' } // For GraphHopper
         maven { url 'https://s3.amazonaws.com/repo.commonsware.com' } // For some open source libraries
     }
 }

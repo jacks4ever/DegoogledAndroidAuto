@@ -3,6 +3,7 @@ package com.degoogled.minimalandroidauto.network
 import android.content.Context
 import android.util.Log
 import com.degoogled.minimalandroidauto.navigation.waze.WazeNetworkFilter
+import com.degoogled.minimalandroidauto.network.AppNetworkFilter
 import com.degoogled.minimalandroidauto.utils.PrivacyPreferences
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
@@ -86,7 +87,8 @@ class NetworkBlocker private constructor(private val context: Context) {
                 if (PrivacyPreferences.isAnalyticsBlockingEnabled(context) && 
                     (BLOCKED_DOMAINS.any { host.contains(it) } ||
                     (PrivacyPreferences.isWazePrivacyEnabled(context) && 
-                     WazeNetworkFilter.getBlockedDomains().any { host.contains(it) }))) {
+                     WazeNetworkFilter.getBlockedDomains().any { host.contains(it) }) ||
+                    AppNetworkFilter.getAllBlockedDomains().any { host.contains(it) })) {
                     Log.d(TAG, "Blocking request to: $url")
                     return@Interceptor createEmptyResponse(chain)
                 }
@@ -110,6 +112,19 @@ class NetworkBlocker private constructor(private val context: Context) {
                     if (host.contains("waze")) {
                         Log.d(TAG, "Blocking non-essential Waze request: $url")
                         return@Interceptor createEmptyResponse(chain)
+                    }
+                }
+                
+                // Allow essential domains for integrated apps
+                val appPackages = listOf("com.whatsapp", "com.microsoft.teams", "com.handcent.nextsms", "com.august.luna")
+                for (packageName in appPackages) {
+                    if (host.contains(packageName.split(".").last().lowercase()) || 
+                        url.contains(packageName)) {
+                        // Check if this is an essential domain
+                        if (!AppNetworkFilter.getEssentialDomains(packageName).any { host.contains(it) }) {
+                            Log.d(TAG, "Blocking non-essential request for $packageName: $url")
+                            return@Interceptor createEmptyResponse(chain)
+                        }
                     }
                 }
 

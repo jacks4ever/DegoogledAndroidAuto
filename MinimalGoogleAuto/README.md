@@ -14,6 +14,11 @@ Minimal Google Auto is designed to work with your car's head unit display while 
 - **Media Playback**: Local and streaming media playback with ExoPlayer
 - **Messaging**: Matrix protocol for secure messaging
 - **Privacy Protection**: Network filtering and monitoring to block tracking
+- **App Integrations**: 
+  - WhatsApp messaging with privacy protections
+  - Microsoft Teams messaging with privacy protections
+  - Handcent SMS integration with privacy protections
+  - August Lock home automation with privacy protections
 
 ## Privacy Approach
 
@@ -57,6 +62,10 @@ This app takes a unique approach to privacy:
 - **Offline Mode**: Uses only offline features (requires downloaded maps)
 - **Network Monitoring**: Monitors and logs all network requests
 - **Waze Privacy Protection**: Blocks Waze analytics and tracking while allowing essential navigation features
+- **WhatsApp Privacy Protection**: Blocks WhatsApp analytics and tracking
+- **Teams Privacy Protection**: Blocks Microsoft Teams analytics and tracking
+- **Handcent Privacy Protection**: Blocks Handcent SMS analytics and tracking
+- **August Lock Privacy Protection**: Blocks August Lock analytics and tracking
 
 ## Technical Details
 

@@ -63,6 +63,18 @@
             android:name=".navigation.NavigationActivity"
             android:exported="false"
             android:screenOrientation="portrait" />
+            
+        <!-- Messaging Activity -->
+        <activity
+            android:name=".messaging.MessagingActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
+            
+        <!-- Home Automation Activity -->
+        <activity
+            android:name=".home.HomeActivity"
+            android:exported="false"
+            android:screenOrientation="portrait" />
         
         <!-- Android Auto Service -->
         <service

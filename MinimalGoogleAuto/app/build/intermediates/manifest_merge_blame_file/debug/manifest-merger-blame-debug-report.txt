@@ -1,0 +1,435 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.degoogled.minimalandroidauto"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+8-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml
+10
+11    <!-- Essential permissions for Android Auto -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:7:5-67
+12-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:7:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:8:5-79
+13-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:8:22-76
+14    <uses-permission android:name="android.permission.BLUETOOTH" />
+14-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:9:5-68
+14-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:9:22-65
+15    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+15-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:10:5-74
+15-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:10:22-71
+16    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+16-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:11:5-76
+16-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:11:22-73
+17
+18    <!-- Location permissions for navigation -->
+19    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+19-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:14:5-79
+19-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:14:22-76
+20    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+20-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:15:5-81
+20-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:15:22-78
+21
+22    <!-- Media permissions -->
+23    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+23-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:18:5-80
+23-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:18:22-77
+24    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+24-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:19:5-77
+24-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:19:22-74
+25    <uses-permission android:name="android.permission.FOREGROUND_SERVICE_MEDIA_PLAYBACK" />
+25-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:20:5-92
+25-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:20:22-89
+26
+27    <!-- Voice recognition permissions -->
+28    <uses-permission android:name="android.permission.RECORD_AUDIO" />
+28-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:23:5-71
+28-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:23:22-68
+29
+30    <!-- Notification permissions -->
+31    <uses-permission android:name="android.permission.POST_NOTIFICATIONS" />
+31-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:26:5-77
+31-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:26:22-74
+32
+33    <!-- Android Auto specific permissions -->
+34    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+34-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:29:5-81
+34-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:29:22-78
+35
+36    <!-- Feature requirements -->
+37    <uses-feature
+37-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:32:5-87
+38        android:name="android.hardware.bluetooth"
+38-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:32:19-60
+39        android:required="true" />
+39-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:32:61-84
+40    <uses-feature
+40-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:33:5-86
+41        android:name="android.hardware.location"
+41-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:33:19-59
+42        android:required="true" />
+42-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:33:60-83
+43    <uses-feature
+43-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:34:5-88
+44        android:name="android.hardware.microphone"
+44-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:34:19-61
+45        android:required="true" />
+45-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:34:62-85
+46    <uses-feature
+46-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:35:5-90
+47        android:name="android.hardware.touchscreen"
+47-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:35:19-62
+48        android:required="false" />
+48-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:35:63-87
+49    <uses-feature
+49-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:36:5-94
+50        android:name="android.hardware.type.automotive"
+50-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:36:19-66
+51        android:required="false" />
+51-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:36:67-91
+52
+53    <permission
+53-->[androidx.core:core:1.10.1] /root/.gradle/caches/transforms-3/e51ba1c54d0889d702970bbc876a2fdb/transformed/core-1.10.1/AndroidManifest.xml:22:5-24:47
+54        android:name="com.degoogled.minimalandroidauto.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+54-->[androidx.core:core:1.10.1] /root/.gradle/caches/transforms-3/e51ba1c54d0889d702970bbc876a2fdb/transformed/core-1.10.1/AndroidManifest.xml:23:9-81
+55        android:protectionLevel="signature" />
+55-->[androidx.core:core:1.10.1] /root/.gradle/caches/transforms-3/e51ba1c54d0889d702970bbc876a2fdb/transformed/core-1.10.1/AndroidManifest.xml:24:9-44
+56
+57    <uses-permission android:name="com.degoogled.minimalandroidauto.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+57-->[androidx.core:core:1.10.1] /root/.gradle/caches/transforms-3/e51ba1c54d0889d702970bbc876a2fdb/transformed/core-1.10.1/AndroidManifest.xml:26:5-97
+57-->[androidx.core:core:1.10.1] /root/.gradle/caches/transforms-3/e51ba1c54d0889d702970bbc876a2fdb/transformed/core-1.10.1/AndroidManifest.xml:26:22-94
+58
+59    <supports-screens
+59-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:9:5-12:40
+60        android:anyDensity="true"
+60-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:10:9-34
+61        android:largeScreens="true"
+61-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:11:9-36
+62        android:normalScreens="true" />
+62-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:12:9-37
+63
+64    <uses-feature
+64-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:14:5-16:36
+65        android:name="android.hardware.location.network"
+65-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:15:9-57
+66        android:required="false" />
+66-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:16:9-33
+67    <uses-feature
+67-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:17:5-19:36
+68        android:name="android.hardware.location.gps"
+68-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:18:9-53
+69        android:required="false" />
+69-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:19:9-33
+70    <uses-feature
+70-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:20:5-22:36
+71        android:name="android.hardware.telephony"
+71-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:21:9-50
+72        android:required="false" />
+72-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:22:9-33
+73    <uses-feature
+73-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:23:5-25:36
+74        android:name="android.hardware.wifi"
+74-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:24:9-45
+75        android:required="false" />
+75-->[org.osmdroid:osmdroid-android:6.1.14] /root/.gradle/caches/transforms-3/127a1f8f222ae3e1ff7c0d9da0f7c74f/transformed/jetified-osmdroid-android-6.1.14/AndroidManifest.xml:25:9-33
+76
+77    <application
+77-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:38:5-136:19
+78        android:name="com.degoogled.minimalandroidauto.MinimalAutoApplication"
+78-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:39:9-47
+79        android:allowBackup="true"
+79-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:40:9-35
+80        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+80-->[androidx.core:core:1.10.1] /root/.gradle/caches/transforms-3/e51ba1c54d0889d702970bbc876a2fdb/transformed/core-1.10.1/AndroidManifest.xml:28:18-86
+81        android:debuggable="true"
+82        android:extractNativeLibs="false"
+83        android:icon="@mipmap/ic_launcher"
+83-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:41:9-43
+84        android:label="@string/app_name"
+84-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:42:9-41
+85        android:networkSecurityConfig="@xml/network_security_config"
+85-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:46:9-69
+86        android:roundIcon="@mipmap/ic_launcher_round"
+86-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:43:9-54
+87        android:supportsRtl="true"
+87-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:44:9-35
+88        android:theme="@style/Theme.MinimalGoogleAuto"
+88-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:45:9-55
+89        android:usesCleartextTraffic="false" >
+89-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:47:9-45
+90
+91        <!-- Main Activity -->
+92        <activity
+92-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:50:9-59:20
+93            android:name="com.degoogled.minimalandroidauto.MainActivity"
+93-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:51:13-41
+94            android:exported="true"
+94-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:52:13-36
+95            android:launchMode="singleTask"
+95-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:53:13-44
+96            android:screenOrientation="portrait" >
+96-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:54:13-49
+97            <intent-filter>
+97-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:55:13-58:29
+98                <action android:name="android.intent.action.MAIN" />
+98-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:56:17-69
+98-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:56:25-66
+99
+100                <category android:name="android.intent.category.LAUNCHER" />
+100-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:57:17-77
+100-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:57:27-74
+101            </intent-filter>
+102        </activity>
+103
+104        <!-- Navigation Activity -->
+105        <activity
+105-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:62:9-65:52
+106            android:name="com.degoogled.minimalandroidauto.navigation.NavigationActivity"
+106-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:63:13-58
+107            android:exported="false"
+107-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:64:13-37
+108            android:screenOrientation="portrait" />
+108-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:65:13-49
+109
+110        <!-- Messaging Activity -->
+111        <activity
+111-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:68:9-71:52
+112            android:name="com.degoogled.minimalandroidauto.messaging.MessagingActivity"
+112-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:69:13-56
+113            android:exported="false"
+113-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:70:13-37
+114            android:screenOrientation="portrait" />
+114-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:71:13-49
+115
+116        <!-- Home Automation Activity -->
+117        <activity
+117-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:74:9-77:52
+118            android:name="com.degoogled.minimalandroidauto.home.HomeActivity"
+118-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:75:13-46
+119            android:exported="false"
+119-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:76:13-37
+120            android:screenOrientation="portrait" />
+120-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:77:13-49
+121
+122        <!-- Android Auto Service -->
+123        <service
+123-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:80:9-88:19
+124            android:name="com.degoogled.minimalandroidauto.proxy.MinimalAutoService"
+124-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:81:13-53
+125            android:exported="true"
+125-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:82:13-36
+126            android:foregroundServiceType="mediaPlayback" >
+126-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:83:13-58
+127            <intent-filter>
+127-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:84:13-87:29
+128                <action android:name="android.intent.action.MAIN" />
+128-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:56:17-69
+128-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:56:25-66
+129
+130                <category android:name="android.intent.category.CAR_DOCK" />
+130-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:86:17-77
+130-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:86:27-74
+131            </intent-filter>
+132        </service>
+133
+134        <!-- Network Security Provider -->
+135        <provider
+136            android:name="com.degoogled.minimalandroidauto.network.NetworkSecurityProvider"
+136-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:92:13-60
+137            android:authorities="com.degoogled.minimalandroidauto.network.provider"
+137-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:93:13-68
+138            android:exported="false" />
+138-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:94:13-37
+139
+140        <!-- Boot Receiver -->
+141        <receiver
+141-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:97:9-103:20
+142            android:name="com.degoogled.minimalandroidauto.utils.BootReceiver"
+142-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:98:13-47
+143            android:exported="true" >
+143-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:99:13-36
+144            <intent-filter>
+144-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:100:13-102:29
+145                <action android:name="android.intent.action.BOOT_COMPLETED" />
+145-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:101:17-79
+145-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:101:25-76
+146            </intent-filter>
+147        </receiver>
+148
+149        <!-- Media Service -->
+150        <service
+150-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:106:9-109:61
+151            android:name="com.degoogled.minimalandroidauto.media.MediaPlaybackService"
+151-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:107:13-55
+152            android:exported="false"
+152-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:108:13-37
+153            android:foregroundServiceType="mediaPlayback" />
+153-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:109:13-58
+154
+155        <!-- Voice Service -->
+156        <service
+156-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:112:9-114:40
+157            android:name="com.degoogled.minimalandroidauto.voice.VoiceRecognitionService"
+157-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:113:13-58
+158            android:exported="false" />
+158-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:114:13-37
+159
+160        <!-- Navigation Service -->
+161        <service
+161-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:117:9-119:40
+162            android:name="com.degoogled.minimalandroidauto.navigation.NavigationService"
+162-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:118:13-57
+163            android:exported="false" />
+163-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:119:13-37
+164
+165        <!-- Messaging Service -->
+166        <service
+166-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:122:9-124:40
+167            android:name="com.degoogled.minimalandroidauto.messaging.MessagingService"
+167-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:123:13-55
+168            android:exported="false" />
+168-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:124:13-37
+169
+170        <!-- Network Monitoring Service -->
+171        <service
+171-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:127:9-129:40
+172            android:name="com.degoogled.minimalandroidauto.network.NetworkMonitoringService"
+172-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:128:13-61
+173            android:exported="false" />
+173-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:129:13-37
+174
+175        <!-- Meta-data for Android Auto -->
+176        <meta-data
+176-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:132:9-134:59
+177            android:name="com.google.android.gms.car.application"
+177-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:133:13-66
+178            android:resource="@xml/automotive_app_desc" />
+178-->/workspace/DegoogledAndroidAuto/MinimalGoogleAuto/app/src/main/AndroidManifest.xml:134:13-56
+179
+180        <activity
+180-->[com.google.android.gms:play-services-auth:20.6.0] /root/.gradle/caches/transforms-3/120e457788b09fa7e7b8e3920ee1961c/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:23:9-27:75
+181            android:name="com.google.android.gms.auth.api.signin.internal.SignInHubActivity"
+181-->[com.google.android.gms:play-services-auth:20.6.0] /root/.gradle/caches/transforms-3/120e457788b09fa7e7b8e3920ee1961c/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:24:13-93
+182            android:excludeFromRecents="true"
+182-->[com.google.android.gms:play-services-auth:20.6.0] /root/.gradle/caches/transforms-3/120e457788b09fa7e7b8e3920ee1961c/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:25:13-46
+183            android:exported="false"
+183-->[com.google.android.gms:play-services-auth:20.6.0] /root/.gradle/caches/transforms-3/120e457788b09fa7e7b8e3920ee1961c/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:26:13-37
+184            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+184-->[com.google.android.gms:play-services-auth:20.6.0] /root/.gradle/caches/transforms-3/120e457788b09fa7e7b8e3920ee1961c/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:27:13-72
+185        <!--
+186            Service handling Google Sign-In user revocation. For apps that do not integrate with
+187            Google Sign-In, this service will never be started.
+188        -->
+189        <service
+189-->[com.google.android.gms:play-services-auth:20.6.0] /root/.gradle/caches/transforms-3/120e457788b09fa7e7b8e3920ee1961c/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:33:9-37:51
+190            android:name="com.google.android.gms.auth.api.signin.RevocationBoundService"
+190-->[com.google.android.gms:play-services-auth:20.6.0] /root/.gradle/caches/transforms-3/120e457788b09fa7e7b8e3920ee1961c/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:34:13-89
+191            android:exported="true"
+191-->[com.google.android.gms:play-services-auth:20.6.0] /root/.gradle/caches/transforms-3/120e457788b09fa7e7b8e3920ee1961c/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:35:13-36
+192            android:permission="com.google.android.gms.auth.api.signin.permission.REVOCATION_NOTIFICATION"
+192-->[com.google.android.gms:play-services-auth:20.6.0] /root/.gradle/caches/transforms-3/120e457788b09fa7e7b8e3920ee1961c/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:36:13-107
+193            android:visibleToInstantApps="true" />
+193-->[com.google.android.gms:play-services-auth:20.6.0] /root/.gradle/caches/transforms-3/120e457788b09fa7e7b8e3920ee1961c/transformed/jetified-play-services-auth-20.6.0/AndroidManifest.xml:37:13-48
+194
+195        <activity
+195-->[com.google.android.gms:play-services-base:18.0.1] /root/.gradle/caches/transforms-3/b4ae6275ed14236599ab32c898200730/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:9-22:45
+196            android:name="com.google.android.gms.common.api.GoogleApiActivity"
+196-->[com.google.android.gms:play-services-base:18.0.1] /root/.gradle/caches/transforms-3/b4ae6275ed14236599ab32c898200730/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:20:19-85
+197            android:exported="false"
+197-->[com.google.android.gms:play-services-base:18.0.1] /root/.gradle/caches/transforms-3/b4ae6275ed14236599ab32c898200730/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:22:19-43
+198            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
+198-->[com.google.android.gms:play-services-base:18.0.1] /root/.gradle/caches/transforms-3/b4ae6275ed14236599ab32c898200730/transformed/jetified-play-services-base-18.0.1/AndroidManifest.xml:21:19-78
+199
+200        <meta-data
+200-->[com.google.android.gms:play-services-basement:18.2.0] /root/.gradle/caches/transforms-3/46676c885d020d9002edcbd4dc95b336/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:21:9-23:69
+201            android:name="com.google.android.gms.version"
+201-->[com.google.android.gms:play-services-basement:18.2.0] /root/.gradle/caches/transforms-3/46676c885d020d9002edcbd4dc95b336/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:22:13-58
+202            android:value="@integer/google_play_services_version" />
+202-->[com.google.android.gms:play-services-basement:18.2.0] /root/.gradle/caches/transforms-3/46676c885d020d9002edcbd4dc95b336/transformed/jetified-play-services-basement-18.2.0/AndroidManifest.xml:23:13-66
+203
+204        <provider
+204-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+205            android:name="androidx.startup.InitializationProvider"
+205-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+206            android:authorities="com.degoogled.minimalandroidauto.androidx-startup"
+206-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+207            android:exported="false" >
+207-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+208            <meta-data
+208-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+209                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+209-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+210                android:value="androidx.startup" />
+210-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+211            <meta-data
+211-->[androidx.lifecycle:lifecycle-process:2.6.1] /root/.gradle/caches/transforms-3/0a940f50fcfe1c4d60c7c148fd846632/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:29:13-31:52
+212                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+212-->[androidx.lifecycle:lifecycle-process:2.6.1] /root/.gradle/caches/transforms-3/0a940f50fcfe1c4d60c7c148fd846632/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:30:17-78
+213                android:value="androidx.startup" />
+213-->[androidx.lifecycle:lifecycle-process:2.6.1] /root/.gradle/caches/transforms-3/0a940f50fcfe1c4d60c7c148fd846632/transformed/jetified-lifecycle-process-2.6.1/AndroidManifest.xml:31:17-49
+214            <meta-data
+214-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:29:13-31:52
+215                android:name="androidx.profileinstaller.ProfileInstallerInitializer"
+215-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:30:17-85
+216                android:value="androidx.startup" />
+216-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:31:17-49
+217        </provider>
+218
+219        <uses-library
+219-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
+220            android:name="androidx.window.extensions"
+220-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
+221            android:required="false" />
+221-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
+222        <uses-library
+222-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
+223            android:name="androidx.window.sidecar"
+223-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
+224            android:required="false" />
+224-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
+225
+226        <receiver
+226-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:34:9-52:20
+227            android:name="androidx.profileinstaller.ProfileInstallReceiver"
+227-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:35:13-76
+228            android:directBootAware="false"
+228-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:36:13-44
+229            android:enabled="true"
+229-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:37:13-35
+230            android:exported="true"
+230-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:38:13-36
+231            android:permission="android.permission.DUMP" >
+231-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:39:13-57
+232            <intent-filter>
+232-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:40:13-42:29
+233                <action android:name="androidx.profileinstaller.action.INSTALL_PROFILE" />
+233-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:17-91
+233-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:41:25-88
+234            </intent-filter>
+235            <intent-filter>
+235-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:43:13-45:29
+236                <action android:name="androidx.profileinstaller.action.SKIP_FILE" />
+236-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:17-85
+236-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:44:25-82
+237            </intent-filter>
+238            <intent-filter>
+238-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:46:13-48:29
+239                <action android:name="androidx.profileinstaller.action.SAVE_PROFILE" />
+239-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:17-88
+239-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:47:25-85
+240            </intent-filter>
+241            <intent-filter>
+241-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:49:13-51:29
+242                <action android:name="androidx.profileinstaller.action.BENCHMARK_OPERATION" />
+242-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:17-95
+242-->[androidx.profileinstaller:profileinstaller:1.3.0] /root/.gradle/caches/transforms-3/14cd6dd0f73632372653e879069e1109/transformed/jetified-profileinstaller-1.3.0/AndroidManifest.xml:50:25-92
+243            </intent-filter>
+244        </receiver>
+245    </application>
+246
+247</manifest>
