@@ -1,0 +1,2 @@
+# DegoogledAndroidAuto
+Self-explanatory
