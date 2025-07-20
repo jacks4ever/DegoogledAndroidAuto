@@ -11,13 +11,15 @@ This repository contains two implementations:
 
 ## Latest Release
 
-**v2.2.0** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.2.0/MinimalGoogleAuto-v2.2.0.apk)
+**v2.2.0** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.2.0/MinimalGoogleAuto-v2.2.0-fixed.apk)
 
 New in this version:
 - WhatsApp, Microsoft Teams, and Handcent SMS integrations
 - Enhanced privacy controls for third-party apps
 - Improved stability and performance
 - Bug fixes and UI enhancements
+
+**Note:** Please use the fixed APK version (MinimalGoogleAuto-v2.2.0-fixed.apk) to avoid installation issues.
 
 ## Features
 
