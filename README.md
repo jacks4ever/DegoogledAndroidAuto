@@ -11,15 +11,19 @@ This repository contains two implementations:
 
 ## Latest Release
 
-**v2.2.0** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.2.0/MinimalGoogleAuto-v2.2.0-fixed.apk)
+**v2.3.0** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.3.0/MinimalGoogleAuto-v2.3.0.apk)
 
 New in this version:
-- WhatsApp, Microsoft Teams, and Handcent SMS integrations
+- Fixed app recognition for apps installed via Aurora Store (not just Google Play)
+- Fixed "Required permission not granted" error when connecting to Nissan Pathfinder
+- Fixed "No installed apps work with this USB accessory" error when connecting via USB
+- Added support for alternative messaging apps (WhatsApp Business, Signal, QKSMS, etc.)
+- Added support for Yale Access app as an alternative to August Lock
+- Improved USB accessory detection and connection handling
 - Enhanced privacy controls for third-party apps
-- Improved stability and performance
 - Bug fixes and UI enhancements
 
-**Note:** Please use the fixed APK version (MinimalGoogleAuto-v2.2.0-fixed.apk) to avoid installation issues.
+**Note:** This version includes important fixes for car connectivity issues and app recognition.
 
 ## Features
 
@@ -48,10 +52,15 @@ New in this version:
 1. Download the Minimal Google Auto APK from the [Releases](https://github.com/jacks4ever/DegoogledAndroidAuto/releases) page
 2. Enable "Install from Unknown Sources" in your Android settings
 3. Install the APK
-4. Grant the requested permissions when prompted
+4. Grant the requested permissions when prompted (make sure to grant ALL requested permissions)
 5. Connect your phone to your car's USB port or use wireless connection if supported
 6. Enable Privacy Mode in the app settings
 7. Tap "Connect to Car" to connect to your car's head unit display
+
+**Troubleshooting Connection Issues:**
+- If you see "Required permission not granted" error, go to Settings > Apps > DegoogledAndroidAuto > Permissions and grant all permissions
+- If you see "No installed apps work with this USB accessory" error, disconnect and reconnect your phone to the car's USB port
+- For Nissan Pathfinder owners: Make sure to use the USB port labeled for phone connection, not the media-only port
 
 ## Usage
 
@@ -78,9 +87,11 @@ New in this version:
 - Dictate replies using the voice assistant
 - Receive notifications for new messages
 - Integrations with popular messaging apps:
-  - WhatsApp: Send messages and view conversations
+  - WhatsApp/WhatsApp Business: Send messages and view conversations
   - Microsoft Teams: Chat with colleagues and join meetings
-  - Handcent SMS: Manage SMS messages with a privacy-focused interface
+  - Handcent SMS/Signal/QKSMS/Silence: Manage SMS messages with a privacy-focused interface
+  
+**Note:** The app now supports messaging apps installed from any source, including Aurora Store and F-Droid, not just Google Play Store.
 
 ## Privacy & Security
 
@@ -138,7 +149,9 @@ This project is licensed under the GNU General Public License v3.0 - see the LIC
 - [Matrix.org](https://matrix.org/) for the messaging protocol
 - [OpenAuto](https://github.com/f1xpl/openauto) for Android Auto protocol research
 - [WhatsApp](https://www.whatsapp.com/), [Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/), and [Handcent SMS](https://www.handcent.com/) for messaging app integrations
-- [August Lock](https://august.com/) for home automation integration
+- [Signal](https://signal.org/), [QKSMS](https://github.com/moezbhatti/qksms), and [Silence](https://silence.im/) for alternative SMS app integrations
+- [August Lock](https://august.com/) and [Yale Access](https://www.yalehome.com/yale-access) for home automation integration
+- [Aurora Store](https://auroraoss.com/) for Google Play Store alternative
 - All other open source projects that made this possible
 
 ## Branches

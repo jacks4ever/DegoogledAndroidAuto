@@ -6,6 +6,7 @@ import android.content.pm.PackageManager
 import android.net.Uri
 import android.util.Log
 import com.degoogled.minimalandroidauto.network.NetworkBlocker
+import com.degoogled.minimalandroidauto.utils.PackageUtils
 import com.degoogled.minimalandroidauto.utils.PrivacyPreferences
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
@@ -20,6 +21,8 @@ class WazeIntegration(private val context: Context) {
     companion object {
         private const val TAG = "WazeIntegration"
         private const val WAZE_PACKAGE = "com.waze"
+        private const val WAZE_PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.waze"
+        private const val WAZE_AURORA_URL = "market://details?id=com.waze"
         
         // Waze deep link formats
         private const val WAZE_URI_FORMAT = "waze://?ll=%f,%f&navigate=yes"
@@ -34,11 +37,23 @@ class WazeIntegration(private val context: Context) {
      * Check if Waze is installed
      */
     fun isWazeInstalled(): Boolean {
-        return try {
-            context.packageManager.getPackageInfo(WAZE_PACKAGE, 0)
-            true
-        } catch (e: PackageManager.NameNotFoundException) {
-            false
+        return PackageUtils.isPackageInstalled(context, WAZE_PACKAGE)
+    }
+    
+    /**
+     * Get the intent to install Waze (tries Aurora Store first, then Play Store)
+     */
+    fun getWazeInstallIntent(): Intent {
+        // Check if Aurora Store is installed
+        if (PackageUtils.isPackageInstalled(context, "com.aurora.store")) {
+            // If Aurora Store is installed, open it to the Waze page
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setPackage("com.aurora.store")
+            intent.data = Uri.parse(WAZE_AURORA_URL)
+            return intent
+        } else {
+            // Fallback to Play Store or direct download
+            return Intent(Intent.ACTION_VIEW, Uri.parse(WAZE_PLAY_STORE_URL))
         }
     }
     
@@ -50,20 +65,24 @@ class WazeIntegration(private val context: Context) {
             // Apply privacy protections before launching Waze
             applyPrivacyProtections()
             
-            // Create intent to launch Waze
-            val wazeUri = if (isWazeInstalled()) {
+            if (isWazeInstalled()) {
                 // Use deep link if Waze is installed
-                Uri.parse(String.format(Locale.US, WAZE_URI_FORMAT, latitude, longitude))
+                val wazeUri = Uri.parse(String.format(Locale.US, WAZE_URI_FORMAT, latitude, longitude))
+                val intent = Intent(Intent.ACTION_VIEW, wazeUri)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                
+                // Launch Waze
+                context.startActivity(intent)
             } else {
-                // Use web fallback if Waze is not installed
-                Uri.parse(String.format(Locale.US, WAZE_FALLBACK_URI_FORMAT, latitude, longitude))
+                // Prompt to install Waze
+                Log.d(TAG, "Waze is not installed, prompting to install")
+                val installIntent = getWazeInstallIntent()
+                installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                context.startActivity(installIntent)
+                
+                // Return false since navigation didn't start
+                return@withContext false
             }
-            
-            val intent = Intent(Intent.ACTION_VIEW, wazeUri)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            
-            // Launch Waze
-            context.startActivity(intent)
             
             Log.d(TAG, "Launched Waze navigation to $latitude, $longitude")
             true
@@ -84,20 +103,24 @@ class WazeIntegration(private val context: Context) {
             // Encode the address
             val encodedAddress = URLEncoder.encode(address, "UTF-8")
             
-            // Create intent to launch Waze
-            val wazeUri = if (isWazeInstalled()) {
+            if (isWazeInstalled()) {
                 // Use deep link if Waze is installed
-                Uri.parse(String.format(Locale.US, WAZE_SEARCH_URI_FORMAT, encodedAddress))
+                val wazeUri = Uri.parse(String.format(Locale.US, WAZE_SEARCH_URI_FORMAT, encodedAddress))
+                val intent = Intent(Intent.ACTION_VIEW, wazeUri)
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                
+                // Launch Waze
+                context.startActivity(intent)
             } else {
-                // Use web fallback if Waze is not installed
-                Uri.parse(String.format(Locale.US, WAZE_FALLBACK_SEARCH_URI_FORMAT, encodedAddress))
+                // Prompt to install Waze
+                Log.d(TAG, "Waze is not installed, prompting to install")
+                val installIntent = getWazeInstallIntent()
+                installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                context.startActivity(installIntent)
+                
+                // Return false since navigation didn't start
+                return@withContext false
             }
-            
-            val intent = Intent(Intent.ACTION_VIEW, wazeUri)
-            intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-            
-            // Launch Waze
-            context.startActivity(intent)
             
             Log.d(TAG, "Launched Waze navigation to $address")
             true

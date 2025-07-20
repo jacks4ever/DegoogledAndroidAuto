@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.util.Log
+import com.degoogled.minimalandroidauto.utils.PackageUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -17,6 +18,12 @@ class HandcentIntegration(private val context: Context) {
         private const val TAG = "HandcentIntegration"
         private const val HANDCENT_PACKAGE = "com.handcent.nextsms"
         private const val HANDCENT_PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.handcent.nextsms"
+        private const val HANDCENT_AURORA_URL = "market://details?id=com.handcent.nextsms"
+        
+        // Alternative SMS apps that might be installed
+        private const val SIGNAL_PACKAGE = "org.thoughtcrime.securesms"
+        private const val QKSMS_PACKAGE = "com.moez.QKSMS"
+        private const val SILENCE_PACKAGE = "org.smssecure.smssecure"
         
         // Intent actions
         private const val ACTION_VIEW_CONVERSATIONS = "com.handcent.nextsms.CONVERSATIONS"
@@ -28,35 +35,73 @@ class HandcentIntegration(private val context: Context) {
      * Check if Handcent is installed
      */
     fun isHandcentInstalled(): Boolean {
-        return try {
-            context.packageManager.getPackageInfo(HANDCENT_PACKAGE, 0)
-            true
-        } catch (e: PackageManager.NameNotFoundException) {
-            false
+        return PackageUtils.isPackageInstalled(context, HANDCENT_PACKAGE)
+    }
+    
+    /**
+     * Check if any supported SMS app is installed
+     */
+    fun isAnySmsAppInstalled(): Boolean {
+        return PackageUtils.isPackageInstalled(context, HANDCENT_PACKAGE) ||
+               PackageUtils.isPackageInstalled(context, SIGNAL_PACKAGE) ||
+               PackageUtils.isPackageInstalled(context, QKSMS_PACKAGE) ||
+               PackageUtils.isPackageInstalled(context, SILENCE_PACKAGE)
+    }
+    
+    /**
+     * Get the package name of the installed SMS app
+     */
+    private fun getInstalledSmsPackage(): String? {
+        return when {
+            PackageUtils.isPackageInstalled(context, HANDCENT_PACKAGE) -> HANDCENT_PACKAGE
+            PackageUtils.isPackageInstalled(context, SIGNAL_PACKAGE) -> SIGNAL_PACKAGE
+            PackageUtils.isPackageInstalled(context, QKSMS_PACKAGE) -> QKSMS_PACKAGE
+            PackageUtils.isPackageInstalled(context, SILENCE_PACKAGE) -> SILENCE_PACKAGE
+            else -> null
         }
     }
 
     /**
-     * Get the Play Store intent to install Handcent
+     * Get the intent to install Handcent (tries Aurora Store first, then Play Store)
      */
     fun getHandcentInstallIntent(): Intent {
-        return Intent(Intent.ACTION_VIEW, Uri.parse(HANDCENT_PLAY_STORE_URL))
+        // Check if Aurora Store is installed
+        if (PackageUtils.isPackageInstalled(context, "com.aurora.store")) {
+            // If Aurora Store is installed, open it to the Handcent page
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setPackage("com.aurora.store")
+            intent.data = Uri.parse(HANDCENT_AURORA_URL)
+            return intent
+        } else {
+            // Fallback to Play Store or direct download
+            return Intent(Intent.ACTION_VIEW, Uri.parse(HANDCENT_PLAY_STORE_URL))
+        }
     }
 
     /**
-     * Launch Handcent app
+     * Launch SMS app (Handcent preferred, but falls back to other SMS apps)
      */
     suspend fun launchHandcent() = withContext(Dispatchers.IO) {
         try {
-            val intent = context.packageManager.getLaunchIntentForPackage(HANDCENT_PACKAGE)
-            if (intent != null) {
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                context.startActivity(intent)
+            val packageName = getInstalledSmsPackage()
+            if (packageName != null) {
+                val intent = context.packageManager.getLaunchIntentForPackage(packageName)
+                if (intent != null) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    context.startActivity(intent)
+                    Log.d(TAG, "Launched SMS app: $packageName")
+                } else {
+                    Log.e(TAG, "Could not create launch intent for SMS app: $packageName")
+                }
             } else {
-                Log.e(TAG, "Could not create launch intent for Handcent")
+                Log.e(TAG, "No supported SMS app installed")
+                // Show installation prompt for Handcent
+                val installIntent = getHandcentInstallIntent()
+                installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                context.startActivity(installIntent)
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Error launching Handcent", e)
+            Log.e(TAG, "Error launching SMS app", e)
         }
     }
 

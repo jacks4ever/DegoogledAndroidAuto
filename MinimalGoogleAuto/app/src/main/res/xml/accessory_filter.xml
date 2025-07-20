@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- Android Auto USB accessory filter -->
+    <usb-accessory
+        manufacturer="Google"
+        model="Android Auto"
+        version="1.0" />
+    
+    <!-- Nissan head unit accessory filter -->
+    <usb-accessory
+        manufacturer="Nissan"
+        model="Pathfinder"
+        version="1.0" />
+    
+    <!-- Generic car head unit accessory filter -->
+    <usb-accessory
+        manufacturer="Android"
+        model="Android Auto"
+        version="1.0" />
+</resources>

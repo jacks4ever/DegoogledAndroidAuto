@@ -82,7 +82,7 @@ class MinimalAutoService : Service() {
             .build()
     }
 
-    private fun initializeAutoProxy() {
+    private suspend fun initializeAutoProxy() {
         try {
             // Only use minimal Google authentication if enabled
             if (PrivacyPreferences.isMinimalAuthEnabled(this)) {

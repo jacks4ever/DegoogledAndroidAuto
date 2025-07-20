@@ -3,8 +3,11 @@ package com.degoogled.minimalandroidauto
 import android.Manifest
 import android.content.Intent
 import android.content.pm.PackageManager
+import android.hardware.usb.UsbAccessory
+import android.hardware.usb.UsbManager
 import android.os.Build
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.app.ActivityCompat
@@ -23,6 +26,7 @@ class MainActivity : AppCompatActivity() {
     private var isConnected = false
 
     companion object {
+        private const val TAG = "MainActivity"
         private const val PERMISSIONS_REQUEST_CODE = 100
         private val REQUIRED_PERMISSIONS = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.S) {
             arrayOf(
@@ -31,7 +35,11 @@ class MainActivity : AppCompatActivity() {
                 Manifest.permission.BLUETOOTH_CONNECT,
                 Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.INTERNET
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.READ_CONTACTS,
+                Manifest.permission.INTERNET,
+                Manifest.permission.MODIFY_AUDIO_SETTINGS
             )
         } else {
             arrayOf(
@@ -41,7 +49,11 @@ class MainActivity : AppCompatActivity() {
                 Manifest.permission.BLUETOOTH_ADMIN,
                 Manifest.permission.RECORD_AUDIO,
                 Manifest.permission.READ_EXTERNAL_STORAGE,
-                Manifest.permission.INTERNET
+                Manifest.permission.WRITE_EXTERNAL_STORAGE,
+                Manifest.permission.READ_PHONE_STATE,
+                Manifest.permission.READ_CONTACTS,
+                Manifest.permission.INTERNET,
+                Manifest.permission.MODIFY_AUDIO_SETTINGS
             )
         }
     }
@@ -54,6 +66,11 @@ class MainActivity : AppCompatActivity() {
         // Check and request permissions
         if (!hasRequiredPermissions()) {
             requestPermissions()
+        }
+        
+        // Check if started from USB accessory attachment
+        if (intent?.action == UsbManager.ACTION_USB_ACCESSORY_ATTACHED) {
+            handleUsbAccessoryAttached(intent)
         }
 
         // Set up privacy switch
@@ -110,6 +127,39 @@ class MainActivity : AppCompatActivity() {
         super.onResume()
         updateConnectionStatus()
         updatePrivacyStatus(PrivacyPreferences.isPrivacyModeEnabled(this))
+    }
+    
+    override fun onNewIntent(intent: Intent?) {
+        super.onNewIntent(intent)
+        
+        // Check if started from USB accessory attachment
+        if (intent?.action == UsbManager.ACTION_USB_ACCESSORY_ATTACHED) {
+            handleUsbAccessoryAttached(intent)
+        }
+    }
+    
+    /**
+     * Handle USB accessory attachment
+     */
+    private fun handleUsbAccessoryAttached(intent: Intent) {
+        val accessory = if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
+            intent.getParcelableExtra(UsbManager.EXTRA_ACCESSORY, UsbAccessory::class.java)
+        } else {
+            @Suppress("DEPRECATION")
+            intent.getParcelableExtra(UsbManager.EXTRA_ACCESSORY)
+        }
+        
+        if (accessory != null) {
+            Log.d(TAG, "USB accessory attached: ${accessory.manufacturer} ${accessory.model}")
+            Toast.makeText(
+                this,
+                "USB accessory connected: ${accessory.manufacturer} ${accessory.model}",
+                Toast.LENGTH_LONG
+            ).show()
+            
+            // Start the Android Auto service
+            connectToCar()
+        }
     }
 
     private fun hasRequiredPermissions(): Boolean {

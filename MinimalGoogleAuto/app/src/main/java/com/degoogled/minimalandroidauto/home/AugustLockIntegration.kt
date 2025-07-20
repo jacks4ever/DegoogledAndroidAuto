@@ -5,6 +5,7 @@ import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
 import android.util.Log
+import com.degoogled.minimalandroidauto.utils.PackageUtils
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 
@@ -17,6 +18,10 @@ class AugustLockIntegration(private val context: Context) {
         private const val TAG = "AugustLockIntegration"
         private const val AUGUST_PACKAGE = "com.august.luna"
         private const val AUGUST_PLAY_STORE_URL = "https://play.google.com/store/apps/details?id=com.august.luna"
+        private const val AUGUST_AURORA_URL = "market://details?id=com.august.luna"
+        
+        // Alternative lock apps
+        private const val YALE_ACCESS_PACKAGE = "com.august.yale"
         
         // Deep link schemes
         private const val AUGUST_SCHEME = "august://"
@@ -29,22 +34,39 @@ class AugustLockIntegration(private val context: Context) {
     }
 
     /**
-     * Check if August Lock app is installed
+     * Check if August Lock app is installed (either August or Yale Access)
      */
     fun isAugustInstalled(): Boolean {
-        return try {
-            context.packageManager.getPackageInfo(AUGUST_PACKAGE, 0)
-            true
-        } catch (e: PackageManager.NameNotFoundException) {
-            false
+        return PackageUtils.isPackageInstalled(context, AUGUST_PACKAGE) ||
+               PackageUtils.isPackageInstalled(context, YALE_ACCESS_PACKAGE)
+    }
+    
+    /**
+     * Get the installed lock app package name
+     */
+    private fun getInstalledLockPackage(): String? {
+        return when {
+            PackageUtils.isPackageInstalled(context, AUGUST_PACKAGE) -> AUGUST_PACKAGE
+            PackageUtils.isPackageInstalled(context, YALE_ACCESS_PACKAGE) -> YALE_ACCESS_PACKAGE
+            else -> null
         }
     }
 
     /**
-     * Get the Play Store intent to install August Lock app
+     * Get the intent to install August Lock app (tries Aurora Store first, then Play Store)
      */
     fun getAugustInstallIntent(): Intent {
-        return Intent(Intent.ACTION_VIEW, Uri.parse(AUGUST_PLAY_STORE_URL))
+        // Check if Aurora Store is installed
+        if (PackageUtils.isPackageInstalled(context, "com.aurora.store")) {
+            // If Aurora Store is installed, open it to the August page
+            val intent = Intent(Intent.ACTION_VIEW)
+            intent.setPackage("com.aurora.store")
+            intent.data = Uri.parse(AUGUST_AURORA_URL)
+            return intent
+        } else {
+            // Fallback to Play Store or direct download
+            return Intent(Intent.ACTION_VIEW, Uri.parse(AUGUST_PLAY_STORE_URL))
+        }
     }
 
     /**
@@ -52,15 +74,25 @@ class AugustLockIntegration(private val context: Context) {
      */
     suspend fun launchAugust() = withContext(Dispatchers.IO) {
         try {
-            val intent = context.packageManager.getLaunchIntentForPackage(AUGUST_PACKAGE)
-            if (intent != null) {
-                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-                context.startActivity(intent)
+            val packageName = getInstalledLockPackage()
+            if (packageName != null) {
+                val intent = context.packageManager.getLaunchIntentForPackage(packageName)
+                if (intent != null) {
+                    intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                    context.startActivity(intent)
+                    Log.d(TAG, "Launched lock app: $packageName")
+                } else {
+                    Log.e(TAG, "Could not create launch intent for lock app: $packageName")
+                }
             } else {
-                Log.e(TAG, "Could not create launch intent for August Lock")
+                Log.e(TAG, "No lock app installed")
+                // Show installation prompt
+                val installIntent = getAugustInstallIntent()
+                installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
+                context.startActivity(installIntent)
             }
         } catch (e: Exception) {
-            Log.e(TAG, "Error launching August Lock", e)
+            Log.e(TAG, "Error launching lock app", e)
         }
     }
 
