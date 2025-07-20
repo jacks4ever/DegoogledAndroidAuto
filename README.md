@@ -9,12 +9,25 @@ This repository contains two implementations:
 1. **Fully Degoogled Version**: Zero Google dependencies, runs as a standalone app on your phone
 2. **Minimal Google Version**: Uses minimal Google dependencies to connect with your car's head unit display
 
+## Latest Release
+
+**v2.2.0** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.2.0/MinimalGoogleAuto-v2.2.0.apk)
+
+New in this version:
+- WhatsApp, Microsoft Teams, and Handcent SMS integrations
+- Enhanced privacy controls for third-party apps
+- Improved stability and performance
+- Bug fixes and UI enhancements
+
 ## Features
 
 - **Privacy-First Navigation**: Uses OpenStreetMap for maps and routing without tracking
+  - Optional Waze integration with privacy filtering
 - **Offline Voice Assistant**: Local voice command processing without cloud dependencies
 - **Open Source Media Player**: Play music from local files or open source streaming services
 - **Secure Messaging**: Matrix protocol integration for private, encrypted messaging
+  - Integrations with WhatsApp, Microsoft Teams, and Handcent SMS
+- **Home Automation**: Control August Lock and other smart home devices
 - **Driver-Friendly UI**: Large touch targets, dark mode, and minimal distractions
 - **Works Offline**: All core features function without an internet connection
 - **Minimal Google Dependencies**: Only essential Google components for car connectivity in the Minimal Google version
@@ -62,6 +75,10 @@ This repository contains two implementations:
 - View and respond to messages with large, easy-to-read text
 - Dictate replies using the voice assistant
 - Receive notifications for new messages
+- Integrations with popular messaging apps:
+  - WhatsApp: Send messages and view conversations
+  - Microsoft Teams: Chat with colleagues and join meetings
+  - Handcent SMS: Manage SMS messages with a privacy-focused interface
 
 ## Privacy & Security
 
@@ -118,6 +135,8 @@ This project is licensed under the GNU General Public License v3.0 - see the LIC
 - [Vosk](https://alphacephei.com/vosk/) for offline speech recognition
 - [Matrix.org](https://matrix.org/) for the messaging protocol
 - [OpenAuto](https://github.com/f1xpl/openauto) for Android Auto protocol research
+- [WhatsApp](https://www.whatsapp.com/), [Microsoft Teams](https://www.microsoft.com/en-us/microsoft-teams/), and [Handcent SMS](https://www.handcent.com/) for messaging app integrations
+- [August Lock](https://august.com/) for home automation integration
 - All other open source projects that made this possible
 
 ## Branches
