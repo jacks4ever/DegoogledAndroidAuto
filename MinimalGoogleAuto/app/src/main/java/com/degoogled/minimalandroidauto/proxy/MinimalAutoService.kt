@@ -43,11 +43,48 @@ class MinimalAutoService : Service() {
 
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         isRunning = true
-        startForeground(NOTIFICATION_ID, createNotification())
         
-        // Initialize the Android Auto proxy
-        serviceScope.launch {
-            initializeAutoProxy()
+        try {
+            startForeground(NOTIFICATION_ID, createNotification())
+            
+            // Initialize the Android Auto proxy
+            serviceScope.launch {
+                try {
+                    initializeAutoProxy()
+                } catch (e: Exception) {
+                    Log.e(TAG, "Error initializing Android Auto proxy", e)
+                    // Show a toast with the error
+                    val message = "Error connecting to car: ${e.message}"
+                    val handler = android.os.Handler(android.os.Looper.getMainLooper())
+                    handler.post {
+                        android.widget.Toast.makeText(
+                            applicationContext,
+                            message,
+                            android.widget.Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    
+                    // Stop the service
+                    stopSelf()
+                }
+            }
+        } catch (e: SecurityException) {
+            Log.e(TAG, "Security exception starting service", e)
+            // Show a toast with the error
+            val message = "Permission error: ${e.message}. Please grant all permissions in settings."
+            val handler = android.os.Handler(android.os.Looper.getMainLooper())
+            handler.post {
+                android.widget.Toast.makeText(
+                    applicationContext,
+                    message,
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
+            }
+            
+            // Stop the service
+            stopSelf()
+            isRunning = false
+            return START_NOT_STICKY
         }
         
         return START_STICKY

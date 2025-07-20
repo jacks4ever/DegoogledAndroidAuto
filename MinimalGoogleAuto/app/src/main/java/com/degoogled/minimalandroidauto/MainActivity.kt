@@ -65,7 +65,17 @@ class MainActivity : AppCompatActivity() {
 
         // Check and request permissions
         if (!hasRequiredPermissions()) {
+            Log.d(TAG, "Requesting permissions on startup")
             requestPermissions()
+            
+            // Show a message about permissions
+            Toast.makeText(
+                this,
+                "Please grant ALL permissions for Android Auto to work properly",
+                Toast.LENGTH_LONG
+            ).show()
+        } else {
+            Log.d(TAG, "All permissions already granted")
         }
         
         // Check if started from USB accessory attachment
@@ -125,9 +135,32 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        
+        // Check permissions again in case they were granted in settings
+        if (hasRequiredPermissions()) {
+            Log.d(TAG, "All permissions granted in onResume")
+            binding.buttonConnect.isEnabled = true
+        } else {
+            Log.d(TAG, "Permissions still missing in onResume")
+            binding.buttonConnect.isEnabled = false
+            
+            // Show a message if the user returned from settings
+            if (isReturningFromSettings) {
+                Toast.makeText(
+                    this,
+                    "Please grant ALL permissions in settings for Android Auto to work",
+                    Toast.LENGTH_LONG
+                ).show()
+                isReturningFromSettings = false
+            }
+        }
+        
         updateConnectionStatus()
         updatePrivacyStatus(PrivacyPreferences.isPrivacyModeEnabled(this))
     }
+    
+    // Track if we're returning from settings
+    private var isReturningFromSettings = false
     
     override fun onNewIntent(intent: Intent?) {
         super.onNewIntent(intent)
@@ -157,8 +190,27 @@ class MainActivity : AppCompatActivity() {
                 Toast.LENGTH_LONG
             ).show()
             
-            // Start the Android Auto service
-            connectToCar()
+            // Check permissions before connecting
+            if (hasRequiredPermissions()) {
+                // Start the Android Auto service
+                connectToCar()
+            } else {
+                Toast.makeText(
+                    this,
+                    "Cannot connect to car - permissions required. Please grant all permissions.",
+                    Toast.LENGTH_LONG
+                ).show()
+                
+                // Request permissions
+                requestPermissions()
+            }
+        } else {
+            Log.e(TAG, "USB accessory is null")
+            Toast.makeText(
+                this,
+                "USB accessory not detected properly. Please disconnect and reconnect.",
+                Toast.LENGTH_LONG
+            ).show()
         }
     }
 
@@ -179,33 +231,98 @@ class MainActivity : AppCompatActivity() {
     ) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
         if (requestCode == PERMISSIONS_REQUEST_CODE) {
-            if (grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
+            if (grantResults.isNotEmpty() && grantResults.all { it == PackageManager.PERMISSION_GRANTED }) {
                 // All permissions granted
                 updateConnectionStatus()
-            } else {
-                // Some permissions denied
                 Toast.makeText(
                     this,
-                    R.string.error_permission_required,
+                    "All permissions granted. You can now connect to your car.",
                     Toast.LENGTH_LONG
                 ).show()
+            } else {
+                // Some permissions denied
+                val deniedPermissions = permissions.filterIndexed { index, _ -> 
+                    grantResults.getOrNull(index) != PackageManager.PERMISSION_GRANTED 
+                }
+                
+                Log.e(TAG, "Denied permissions: ${deniedPermissions.joinToString()}")
+                
+                // Check if we should show rationale for any permission
+                val shouldShowRationale = deniedPermissions.any {
+                    ActivityCompat.shouldShowRequestPermissionRationale(this, it)
+                }
+                
+                if (shouldShowRationale) {
+                    // User denied but didn't check "Don't ask again"
+                    Toast.makeText(
+                        this,
+                        "These permissions are required for Android Auto to work properly. Please grant all permissions.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    
+                    // Request again after a short delay
+                    binding.root.postDelayed({
+                        requestPermissions()
+                    }, 2000)
+                } else {
+                    // User denied and checked "Don't ask again"
+                    Toast.makeText(
+                        this,
+                        "Required permissions denied. Please enable them in app settings.",
+                        Toast.LENGTH_LONG
+                    ).show()
+                    
+                    // Open app settings
+                    val intent = Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+                    val uri = android.net.Uri.fromParts("package", packageName, null)
+                    intent.data = uri
+                    isReturningFromSettings = true
+                    startActivity(intent)
+                }
             }
         }
     }
 
     private fun connectToCar() {
         if (!hasRequiredPermissions()) {
-            requestPermissions()
+            // Show a more detailed message about permissions
+            Toast.makeText(
+                this,
+                "Required permissions not granted. Please grant ALL permissions in the app settings.",
+                Toast.LENGTH_LONG
+            ).show()
+            
+            // Open app settings directly
+            val intent = Intent(android.provider.Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
+            val uri = android.net.Uri.fromParts("package", packageName, null)
+            intent.data = uri
+            isReturningFromSettings = true
+            startActivity(intent)
             return
         }
 
-        // Start the Android Auto service
-        val intent = Intent(this, MinimalAutoService::class.java)
-        startService(intent)
+        try {
+            // Start the Android Auto service
+            val intent = Intent(this, MinimalAutoService::class.java)
+            startService(intent)
 
-        // Update UI
-        isConnected = true
-        updateConnectionStatus()
+            // Update UI
+            isConnected = true
+            updateConnectionStatus()
+            
+            Toast.makeText(
+                this,
+                "Connected to car. If your car display doesn't show the app, please disconnect and reconnect the USB cable.",
+                Toast.LENGTH_LONG
+            ).show()
+        } catch (e: Exception) {
+            Log.e(TAG, "Error connecting to car", e)
+            Toast.makeText(
+                this,
+                "Error connecting to car: ${e.message}",
+                Toast.LENGTH_LONG
+            ).show()
+        }
     }
 
     private fun disconnectFromCar() {
