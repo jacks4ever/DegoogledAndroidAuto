@@ -11,19 +11,22 @@ This repository contains two implementations:
 
 ## Latest Release
 
-**v2.3.0** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.3.0/MinimalGoogleAuto-v2.3.0.apk)
+**v2.3.1** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.3.1/MinimalGoogleAuto-v2.3.1.apk)
 
 New in this version:
+- Fixed "Required permission not granted" error when connecting to car
+- Improved permission handling with better error messages
+- Added automatic redirection to app settings when permissions are missing
+- Enhanced error recovery for USB connections
+- Added better error handling for car connection issues
 - Fixed app recognition for apps installed via Aurora Store (not just Google Play)
-- Fixed "Required permission not granted" error when connecting to Nissan Pathfinder
-- Fixed "No installed apps work with this USB accessory" error when connecting via USB
 - Added support for alternative messaging apps (WhatsApp Business, Signal, QKSMS, etc.)
 - Added support for Yale Access app as an alternative to August Lock
 - Improved USB accessory detection and connection handling
 - Enhanced privacy controls for third-party apps
 - Bug fixes and UI enhancements
 
-**Note:** This version includes important fixes for car connectivity issues and app recognition.
+**Note:** This version includes important fixes for permission handling and car connectivity issues.
 
 ## Features
 
@@ -58,9 +61,14 @@ New in this version:
 7. Tap "Connect to Car" to connect to your car's head unit display
 
 **Troubleshooting Connection Issues:**
-- If you see "Required permission not granted" error, go to Settings > Apps > DegoogledAndroidAuto > Permissions and grant all permissions
-- If you see "No installed apps work with this USB accessory" error, disconnect and reconnect your phone to the car's USB port
-- For Nissan Pathfinder owners: Make sure to use the USB port labeled for phone connection, not the media-only port
+- If you see "Required permission not granted" error:
+  1. The app will automatically open your device settings
+  2. Go to Permissions and grant ALL permissions (Location, Storage, Contacts, Phone, etc.)
+  3. Return to the app and try connecting again
+- If you see "No installed apps work with this USB accessory" error:
+  1. Disconnect and reconnect your phone to the car's USB port
+  2. Try a different USB cable if available
+  3. For Nissan Pathfinder owners: Make sure to use the USB port labeled for phone connection, not the media-only port
 
 ## Usage
 
