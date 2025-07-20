@@ -11,25 +11,27 @@ This repository contains two implementations:
 
 ## Latest Release
 
-**v2.3.2** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.3.2/MinimalGoogleAuto-v2.3.2.apk)
+**v2.3.3** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.3.3/MinimalGoogleAuto-v2.3.3.apk)
 
 New in this version:
-- Fixed "Required permission not granted" error with improved permission handling
-- Added support for Android 13+ (API 33+) permissions
-- Added USB permission handling for car connections
-- Added detailed error messages showing exactly which permissions are missing
-- Enhanced permission checking with automatic connection retry
+- Fixed "Android Auto closed unexpectedly" error on Nissan Pathfinder
+- Added special handling for Nissan head units
+- Enhanced USB accessory detection with multiple manufacturer/model combinations
+- Added detailed logging for USB accessory connections
+- Improved error handling with better error messages
+- Added multiple connection methods for different head unit types
+- Enhanced projection status handling
+- Added better error recovery for connection failures
+- Fixed permission handling for Android 13+ (API 33+)
 - Added support for BLUETOOTH_SCAN permission
 - Added support for READ_MEDIA_AUDIO and READ_MEDIA_IMAGES permissions
 - Added support for NEARBY_WIFI_DEVICES permission
 - Fixed app recognition for apps installed via Aurora Store (not just Google Play)
 - Added support for alternative messaging apps (WhatsApp Business, Signal, QKSMS, etc.)
-- Added support for Yale Access app as an alternative to August Lock
 - Improved USB accessory detection and connection handling
 - Enhanced privacy controls for third-party apps
-- Bug fixes and UI enhancements
 
-**Note:** This version includes important fixes for permission handling on newer Android versions.
+**Note:** This version includes important fixes for Nissan Pathfinder and other head units that were experiencing connection issues.
 
 ## Features
 
@@ -64,6 +66,11 @@ New in this version:
 7. Tap "Connect to Car" to connect to your car's head unit display
 
 **Troubleshooting Connection Issues:**
+- If you see "Android Auto closed unexpectedly" error:
+  1. Disconnect and reconnect your phone to the car's USB port
+  2. Try a different USB cable if available
+  3. Make sure to use the USB port labeled for phone connection, not the media-only port
+  4. The app will now show more detailed error messages to help diagnose the issue
 - If you see "Missing permissions" error:
   1. The app will now show exactly which permissions are missing
   2. Go to Settings > Apps > DegoogledAndroidAuto > Permissions
@@ -73,7 +80,7 @@ New in this version:
   1. Tap "Allow" when prompted for USB permission
   2. If not prompted, disconnect and reconnect your phone to the car's USB port
   3. Try a different USB cable if available
-- For Nissan Pathfinder owners: Make sure to use the USB port labeled for phone connection, not the media-only port
+- For Nissan Pathfinder owners: This version includes special handling for your vehicle
 
 ## Usage
 

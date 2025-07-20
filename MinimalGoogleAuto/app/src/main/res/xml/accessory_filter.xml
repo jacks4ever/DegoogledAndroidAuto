@@ -6,10 +6,25 @@
         model="Android Auto"
         version="1.0" />
     
-    <!-- Nissan head unit accessory filter -->
+    <!-- Nissan head unit accessory filter - multiple variants -->
     <usb-accessory
         manufacturer="Nissan"
         model="Pathfinder"
+        version="1.0" />
+    
+    <usb-accessory
+        manufacturer="Nissan"
+        model="Android Auto"
+        version="1.0" />
+        
+    <usb-accessory
+        manufacturer="NISSAN"
+        model="Pathfinder"
+        version="1.0" />
+        
+    <usb-accessory
+        manufacturer="NISSAN"
+        model="Android Auto"
         version="1.0" />
     
     <!-- Generic car head unit accessory filter -->
@@ -17,4 +32,10 @@
         manufacturer="Android"
         model="Android Auto"
         version="1.0" />
+        
+    <!-- Generic accessory filter as fallback -->
+    <usb-accessory
+        manufacturer="*"
+        model="*"
+        version="*" />
 </resources>

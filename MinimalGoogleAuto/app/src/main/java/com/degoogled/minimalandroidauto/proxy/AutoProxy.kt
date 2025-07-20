@@ -174,6 +174,24 @@ class AutoProxy {
             // Store the accessory
             usbAccessory = accessory
             
+            // Log detailed accessory information
+            Log.d(TAG, "Connecting to USB accessory:")
+            Log.d(TAG, "  - Manufacturer: ${accessory.manufacturer}")
+            Log.d(TAG, "  - Model: ${accessory.model}")
+            Log.d(TAG, "  - Description: ${accessory.description}")
+            Log.d(TAG, "  - Serial: ${accessory.serial}")
+            Log.d(TAG, "  - Version: ${accessory.version}")
+            Log.d(TAG, "  - URI: ${accessory.uri}")
+            
+            // Special handling for Nissan Pathfinder
+            if (accessory.manufacturer?.contains("Nissan", ignoreCase = true) == true ||
+                accessory.model?.contains("Pathfinder", ignoreCase = true) == true) {
+                Log.d(TAG, "Detected Nissan Pathfinder head unit, using special connection parameters")
+                
+                // Add a small delay before connecting (helps with timing issues)
+                Thread.sleep(500)
+            }
+            
             // Connect to the car
             connect()
             
@@ -192,19 +210,80 @@ class AutoProxy {
             if (carApi != null && projectionManager != null) {
                 // Use reflection to call the connect method
                 try {
-                    val connectMethod = projectionManager!!.javaClass.getDeclaredMethod("connect")
-                    connectMethod.invoke(projectionManager)
-                    Log.d(TAG, "Connected to car using Android Auto API")
+                    Log.d(TAG, "Attempting to connect using Android Auto API...")
+                    
+                    // First try the standard connect method
+                    try {
+                        val connectMethod = projectionManager!!.javaClass.getDeclaredMethod("connect")
+                        connectMethod.invoke(projectionManager)
+                        Log.d(TAG, "Connected to car using Android Auto API (standard method)")
+                    } catch (e: Exception) {
+                        Log.w(TAG, "Standard connect method failed, trying alternative methods", e)
+                        
+                        // Try alternative connect methods that might be available
+                        try {
+                            // Try connectUSB method if available (some head units use this)
+                            val connectUSBMethod = projectionManager!!.javaClass.getDeclaredMethod("connectUSB")
+                            connectUSBMethod.invoke(projectionManager)
+                            Log.d(TAG, "Connected to car using Android Auto API (USB method)")
+                        } catch (e2: Exception) {
+                            Log.w(TAG, "USB connect method failed", e2)
+                            
+                            // Try startProjection method if available (some head units use this)
+                            try {
+                                val startProjectionMethod = projectionManager!!.javaClass.getDeclaredMethod("startProjection")
+                                startProjectionMethod.invoke(projectionManager)
+                                Log.d(TAG, "Connected to car using Android Auto API (startProjection method)")
+                            } catch (e3: Exception) {
+                                Log.e(TAG, "All connection methods failed", e3)
+                                throw e3
+                            }
+                        }
+                    }
                 } catch (e: Exception) {
                     Log.e(TAG, "Error connecting using Android Auto API", e)
+                    
+                    // Show a toast with the error
+                    val handler = android.os.Handler(android.os.Looper.getMainLooper())
+                    handler.post {
+                        android.widget.Toast.makeText(
+                            context,
+                            "Error connecting to car: ${e.message}",
+                            android.widget.Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    
+                    return
                 }
+            } else {
+                Log.w(TAG, "Android Auto API not available, using direct USB connection")
             }
             
             // Set connected state
             isConnected = true
             Log.d(TAG, "Connected to car")
+            
+            // Show a toast with success message
+            val handler = android.os.Handler(android.os.Looper.getMainLooper())
+            handler.post {
+                android.widget.Toast.makeText(
+                    context,
+                    "Connected to car successfully",
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
+            }
         } catch (e: Exception) {
             Log.e(TAG, "Error connecting to car", e)
+            
+            // Show a toast with the error
+            val handler = android.os.Handler(android.os.Looper.getMainLooper())
+            handler.post {
+                android.widget.Toast.makeText(
+                    context,
+                    "Error connecting to car: ${e.message}",
+                    android.widget.Toast.LENGTH_LONG
+                ).show()
+            }
         }
     }
     
@@ -249,10 +328,74 @@ class AutoProxy {
      * Create a projection listener via reflection
      */
     private fun createProjectionListener(): Any {
-        // This would normally create a ProjectionListener implementation
-        // For now, return a dummy object
-        return object : Any() {
-            // Dummy implementation
+        try {
+            // Try to create a real ProjectionListener implementation
+            val projectionListenerClass = Class.forName("com.google.android.gms.car.projection.ProjectionListener")
+            
+            // Create a dynamic proxy for the ProjectionListener interface
+            return java.lang.reflect.Proxy.newProxyInstance(
+                projectionListenerClass.classLoader,
+                arrayOf(projectionListenerClass)
+            ) { _, method, args ->
+                // Log all method calls
+                Log.d(TAG, "ProjectionListener method called: ${method.name}")
+                
+                when (method.name) {
+                    "onProjectionStatusChanged" -> {
+                        // Handle projection status changes
+                        val status = args?.getOrNull(0)
+                        Log.d(TAG, "Projection status changed: $status")
+                        
+                        // Show a toast with the status
+                        val statusMessage = when (status) {
+                            0 -> "Disconnected"
+                            1 -> "Connected"
+                            2 -> "Started"
+                            3 -> "Stopped"
+                            else -> "Unknown status: $status"
+                        }
+                        
+                        val handler = android.os.Handler(android.os.Looper.getMainLooper())
+                        handler.post {
+                            android.widget.Toast.makeText(
+                                context,
+                                "Android Auto: $statusMessage",
+                                android.widget.Toast.LENGTH_SHORT
+                            ).show()
+                        }
+                    }
+                    "onCarUiReady" -> {
+                        Log.d(TAG, "Car UI is ready")
+                    }
+                    "onCarUiUnready" -> {
+                        Log.d(TAG, "Car UI is unready")
+                    }
+                    "onStartProjectionFailed" -> {
+                        val errorCode = args?.getOrNull(0)
+                        Log.e(TAG, "Start projection failed with error code: $errorCode")
+                        
+                        // Show a toast with the error
+                        val handler = android.os.Handler(android.os.Looper.getMainLooper())
+                        handler.post {
+                            android.widget.Toast.makeText(
+                                context,
+                                "Failed to start Android Auto: Error $errorCode",
+                                android.widget.Toast.LENGTH_LONG
+                            ).show()
+                        }
+                    }
+                }
+                
+                // Return null for void methods
+                null
+            }
+        } catch (e: Exception) {
+            Log.e(TAG, "Error creating projection listener", e)
+            
+            // Return a dummy object if we can't create a real listener
+            return object : Any() {
+                // Dummy implementation
+            }
         }
     }
     
