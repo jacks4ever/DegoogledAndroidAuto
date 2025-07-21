@@ -3,7 +3,7 @@ package com.degoogled.minimalandroidauto.navigation
 import android.app.Service
 import android.content.Intent
 import android.os.IBinder
-import android.util.Log
+import com.degoogled.minimalandroidauto.utils.logDebug
 import org.osmdroid.util.GeoPoint
 
 /**
@@ -13,6 +13,14 @@ class NavigationService : Service() {
 
     companion object {
         private const val TAG = "NavigationService"
+        
+        // Actions
+        const val ACTION_START_NAVIGATION = "com.degoogled.minimalandroidauto.action.START_NAVIGATION"
+        const val ACTION_STOP_NAVIGATION = "com.degoogled.minimalandroidauto.action.STOP_NAVIGATION"
+        
+        // Extras
+        const val EXTRA_LATITUDE = "com.degoogled.minimalandroidauto.extra.LATITUDE"
+        const val EXTRA_LONGITUDE = "com.degoogled.minimalandroidauto.extra.LONGITUDE"
     }
 
     private var isNavigating = false
@@ -44,7 +52,7 @@ class NavigationService : Service() {
     private fun startNavigation(destination: GeoPoint) {
         isNavigating = true
         currentDestination = destination
-        Log.d(TAG, "Starting navigation to $destination")
+        logDebug("Starting navigation to $destination")
         
         // This would normally start the actual navigation
         // For now, just log that navigation has started
@@ -56,16 +64,11 @@ class NavigationService : Service() {
     private fun stopNavigation() {
         isNavigating = false
         currentDestination = null
-        Log.d(TAG, "Stopping navigation")
+        logDebug("Stopping navigation")
         
         // This would normally stop the actual navigation
         // For now, just log that navigation has stopped
     }
 
-    companion object {
-        const val ACTION_START_NAVIGATION = "com.degoogled.minimalandroidauto.action.START_NAVIGATION"
-        const val ACTION_STOP_NAVIGATION = "com.degoogled.minimalandroidauto.action.STOP_NAVIGATION"
-        const val EXTRA_LATITUDE = "com.degoogled.minimalandroidauto.extra.LATITUDE"
-        const val EXTRA_LONGITUDE = "com.degoogled.minimalandroidauto.extra.LONGITUDE"
-    }
+
 }

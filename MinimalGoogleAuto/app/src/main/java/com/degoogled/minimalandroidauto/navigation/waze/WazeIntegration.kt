@@ -4,7 +4,8 @@ import android.content.Context
 import android.content.Intent
 import android.content.pm.PackageManager
 import android.net.Uri
-import android.util.Log
+import com.degoogled.minimalandroidauto.utils.logDebug
+import com.degoogled.minimalandroidauto.utils.logError
 import com.degoogled.minimalandroidauto.network.NetworkBlocker
 import com.degoogled.minimalandroidauto.utils.PackageUtils
 import com.degoogled.minimalandroidauto.utils.PrivacyPreferences
@@ -75,7 +76,7 @@ class WazeIntegration(private val context: Context) {
                 context.startActivity(intent)
             } else {
                 // Prompt to install Waze
-                Log.d(TAG, "Waze is not installed, prompting to install")
+                logDebug("Waze is not installed, prompting to install")
                 val installIntent = getWazeInstallIntent()
                 installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 context.startActivity(installIntent)
@@ -84,10 +85,10 @@ class WazeIntegration(private val context: Context) {
                 return@withContext false
             }
             
-            Log.d(TAG, "Launched Waze navigation to $latitude, $longitude")
+            logDebug("Launched Waze navigation to $latitude, $longitude")
             true
         } catch (e: Exception) {
-            Log.e(TAG, "Error launching Waze", e)
+            logError("Error launching Waze", e)
             false
         }
     }
@@ -113,7 +114,7 @@ class WazeIntegration(private val context: Context) {
                 context.startActivity(intent)
             } else {
                 // Prompt to install Waze
-                Log.d(TAG, "Waze is not installed, prompting to install")
+                logDebug("Waze is not installed, prompting to install")
                 val installIntent = getWazeInstallIntent()
                 installIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
                 context.startActivity(installIntent)
@@ -125,7 +126,7 @@ class WazeIntegration(private val context: Context) {
             Log.d(TAG, "Launched Waze navigation to $address")
             true
         } catch (e: Exception) {
-            Log.e(TAG, "Error launching Waze", e)
+            logError("Error launching Waze", e)
             false
         }
     }

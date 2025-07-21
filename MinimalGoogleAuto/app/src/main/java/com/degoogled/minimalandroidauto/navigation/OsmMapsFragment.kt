@@ -7,7 +7,8 @@ import android.location.Location
 import android.location.LocationListener
 import android.location.LocationManager
 import android.os.Bundle
-import android.util.Log
+import com.degoogled.minimalandroidauto.utils.logDebug
+import com.degoogled.minimalandroidauto.utils.logError
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -55,7 +56,7 @@ class OsmMapsFragment : Fragment(), LocationListener {
         
         // Initialize OSMDroid configuration
         val ctx = requireActivity().applicationContext
-        Configuration.getInstance().load(ctx, androidx.preference.PreferenceManager.getDefaultSharedPreferences(ctx))
+        Configuration.getInstance().load(ctx, ctx.getSharedPreferences("osmdroid", Context.MODE_PRIVATE))
         Configuration.getInstance().userAgentValue = requireActivity().packageName
         
         // Initialize views
@@ -186,7 +187,7 @@ class OsmMapsFragment : Fragment(), LocationListener {
     fun searchLocation(query: String) {
         // This would normally use a geocoder to search for the location
         // For now, just log the search query
-        Log.d(TAG, "Searching for location: $query")
+        logDebug("Searching for location: $query")
         
         // TODO: Implement geocoding to search for the location
     }
@@ -231,7 +232,7 @@ class OsmMapsFragment : Fragment(), LocationListener {
         
         // This would normally start the actual navigation
         // For now, just log that navigation has started
-        Log.d(TAG, "Starting navigation to ${destinationMarker?.position}")
+        logDebug("Starting navigation to ${destinationMarker?.position}")
         
         // Change FAB to stop navigation
         fabStartNavigation.setImageResource(android.R.drawable.ic_menu_close_clear_cancel)
@@ -249,7 +250,7 @@ class OsmMapsFragment : Fragment(), LocationListener {
         
         // This would normally stop the actual navigation
         // For now, just log that navigation has stopped
-        Log.d(TAG, "Stopping navigation")
+        logDebug("Stopping navigation")
         
         // Change FAB back to start navigation
         fabStartNavigation.setImageResource(android.R.drawable.ic_menu_directions)
@@ -263,7 +264,7 @@ class OsmMapsFragment : Fragment(), LocationListener {
         if (isNavigating) {
             // This would normally update the navigation route
             // For now, just log the location update
-            Log.d(TAG, "Location updated: ${location.latitude}, ${location.longitude}")
+            logDebug("Location updated: ${location.latitude}, ${location.longitude}")
         }
     }
 }

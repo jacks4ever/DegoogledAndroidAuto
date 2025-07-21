@@ -1,7 +1,8 @@
 package com.degoogled.minimalandroidauto.navigation.waze
 
 import android.content.Context
-import android.util.Log
+import com.degoogled.minimalandroidauto.utils.logDebug
+import com.degoogled.minimalandroidauto.utils.logError
 import com.degoogled.minimalandroidauto.utils.PrivacyPreferences
 import java.io.File
 import java.io.FileWriter
@@ -55,9 +56,9 @@ object WazeNetworkFilter {
                 createHostsFileEntries(context)
                 
                 // Log that filtering is enabled
-                Log.d(TAG, "Waze network filtering enabled")
+                logDebug("Waze network filtering enabled")
             } catch (e: Exception) {
-                Log.e(TAG, "Error enabling Waze network filtering", e)
+                logError("Error enabling Waze network filtering", e)
             }
         }
     }
@@ -96,9 +97,9 @@ object WazeNetworkFilter {
                 }
             }
             
-            Log.d(TAG, "Created Waze filter log at ${logFile.absolutePath}")
+            logDebug("Created Waze filter log at ${logFile.absolutePath}")
         } catch (e: Exception) {
-            Log.e(TAG, "Error creating hosts file entries", e)
+            logError("Error creating hosts file entries", e)
         }
     }
     
