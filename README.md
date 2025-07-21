@@ -11,17 +11,18 @@ This repository contains two implementations:
 
 ## Latest Release
 
-**v2.3.3** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.3.3/MinimalGoogleAuto-v2.3.3.apk)
+**v2.3.4** - [Download APK](https://github.com/jacks4ever/DegoogledAndroidAuto/releases/download/v2.3.4/DegoogledAndroidAuto-v2.3.4.apk)
 
 New in this version:
-- Fixed "Android Auto closed unexpectedly" error on Nissan Pathfinder
+- **App renamed to "Degoogled Android Auto"**
+- Fixed "Android Auto stopped unexpectedly" error on Nissan Pathfinder and other head units
+- Added automatic service recovery when connection is interrupted
+- Enhanced service stability with improved error handling
+- Added detailed logging for connection issues
+- Added automatic retry mechanism after connection failures
+- Improved notification handling
 - Added special handling for Nissan head units
 - Enhanced USB accessory detection with multiple manufacturer/model combinations
-- Added detailed logging for USB accessory connections
-- Improved error handling with better error messages
-- Added multiple connection methods for different head unit types
-- Enhanced projection status handling
-- Added better error recovery for connection failures
 - Fixed permission handling for Android 13+ (API 33+)
 - Added support for BLUETOOTH_SCAN permission
 - Added support for READ_MEDIA_AUDIO and READ_MEDIA_IMAGES permissions
@@ -31,7 +32,7 @@ New in this version:
 - Improved USB accessory detection and connection handling
 - Enhanced privacy controls for third-party apps
 
-**Note:** This version includes important fixes for Nissan Pathfinder and other head units that were experiencing connection issues.
+**Note:** This version includes important fixes for the "Android Auto stopped unexpectedly" error and renames the app to better reflect its purpose.
 
 ## Features
 
