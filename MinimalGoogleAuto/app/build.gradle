@@ -12,15 +12,15 @@ android {
         applicationId "com.degoogled.minimalandroidauto"
         minSdkVersion 26
         targetSdkVersion 33
-        versionCode 220
-        versionName "2.2.0"
+        versionCode 235
+        versionName "2.3.5"
 
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
 
     signingConfigs {
         release {
-            storeFile file("${rootProject.projectDir}/../releases/v2.2.0/release-key.keystore")
+            storeFile file("${rootProject.projectDir}/../releases/v2.3.5/release-key.keystore")
             storePassword "degoogled"
             keyAlias "degoogled"
             keyPassword "degoogled"

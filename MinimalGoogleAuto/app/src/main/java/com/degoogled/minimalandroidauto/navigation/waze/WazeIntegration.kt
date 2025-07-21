@@ -123,7 +123,7 @@ class WazeIntegration(private val context: Context) {
                 return@withContext false
             }
             
-            Log.d(TAG, "Launched Waze navigation to $address")
+            logDebug("Launched Waze navigation to $address")
             true
         } catch (e: Exception) {
             logError("Error launching Waze", e)
@@ -140,7 +140,7 @@ class WazeIntegration(private val context: Context) {
             WazeNetworkFilter.enableFiltering(context)
             
             // Log that we're launching Waze with privacy protections
-            Log.d(TAG, "Launching Waze with privacy protections enabled")
+            logDebug("Launching Waze with privacy protections enabled")
         }
     }
 }
