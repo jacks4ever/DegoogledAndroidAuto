@@ -1,0 +1,62 @@
+[
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/item_main_menu.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/item_main_menu.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/fragment_home.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/fragment_home.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/fragment_settings.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/fragment_settings.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/fragment_conversation.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/fragment_conversation.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/fragment_messaging.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/fragment_messaging.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/fragment_media.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/fragment_media.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/item_media.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/item_media.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/fragment_media_library.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/fragment_media_library.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/item_message_received.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/item_message_received.xml"
+    },
+    {
+        "merged": "com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/activity_main_simplified.xml",
+        "source": "com.degoogled.androidauto.app-main-60:/layout/activity_main_simplified.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/item_setting.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/item_setting.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/fragment_navigation.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/fragment_navigation.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/activity_main.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/activity_main.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/item_conversation.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/item_conversation.xml"
+    },
+    {
+        "merged": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-mergeReleaseResources-58:/layout/item_message.xml",
+        "source": "/root/.gradle/daemon/7.5/com.degoogled.androidauto.app-main-60:/layout/item_message.xml"
+    }
+]

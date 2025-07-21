@@ -1,0 +1,111 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'kotlin-kapt'
+}
+
+android {
+    compileSdkVersion 33
+    buildToolsVersion "33.0.2"
+
+    defaultConfig {
+        applicationId "com.degoogled.minimalandroidauto"
+        minSdkVersion 26
+        targetSdkVersion 33
+        versionCode 235
+        versionName "2.3.5"
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    signingConfigs {
+        release {
+            storeFile file("${rootProject.projectDir}/../releases/v2.3.5/release-key.keystore")
+            storePassword "degoogled"
+            keyAlias "degoogled"
+            keyPassword "degoogled"
+        }
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled true
+            shrinkResources true
+            signingConfig signingConfigs.release
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+        debug {
+            // Enable debugging for the minimal Google components
+            debuggable true
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+
+    buildFeatures {
+        viewBinding true
+    }
+
+    // Separate the Google dependencies into their own configuration
+    configurations {
+        googleImplementation
+        implementation.extendsFrom(googleImplementation)
+    }
+}
+
+dependencies {
+    // Core Android dependencies
+    implementation 'androidx.core:core-ktx:1.10.1'
+    implementation 'androidx.appcompat:appcompat:1.6.1'
+    implementation 'androidx.constraintlayout:constraintlayout:2.1.4'
+    implementation 'com.google.android.material:material:1.9.0'
+    implementation 'androidx.lifecycle:lifecycle-runtime-ktx:2.6.1'
+    implementation 'androidx.lifecycle:lifecycle-viewmodel-ktx:2.6.1'
+    
+    // Navigation component
+    implementation 'androidx.navigation:navigation-fragment-ktx:2.6.0'
+    implementation 'androidx.navigation:navigation-ui-ktx:2.6.0'
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    
+    // Koin for dependency injection
+    implementation 'io.insert-koin:koin-android:3.4.0'
+    
+    // Coroutines
+    implementation 'org.jetbrains.kotlinx:kotlinx-coroutines-android:1.6.4'
+    
+    // OpenStreetMap for navigation
+    implementation 'org.osmdroid:osmdroid-android:6.1.14'
+    implementation 'org.osmdroid:osmdroid-mapsforge:6.1.14'
+    
+    // ExoPlayer for media playback
+    implementation 'com.google.android.exoplayer:exoplayer-core:2.18.7'
+    implementation 'com.google.android.exoplayer:exoplayer-ui:2.18.7'
+    
+    // Vosk for offline voice recognition
+    implementation 'com.alphacephei:vosk-android:0.3.47'
+    
+    // Matrix SDK for messaging
+    // implementation 'org.matrix.android:matrix-sdk-android:1.5.10'
+    // Using a placeholder for Matrix SDK since it's not available in the repository
+    implementation 'com.squareup.retrofit2:retrofit:2.9.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.9.0'
+    
+    // Network monitoring and filtering
+    implementation 'com.squareup.okhttp3:okhttp:4.10.0'
+    implementation 'com.squareup.okhttp3:logging-interceptor:4.10.0'
+    
+    // Minimal Google dependencies (isolated in googleImplementation configuration)
+    googleImplementation 'com.google.android.gms:play-services-auth:20.6.0'
+    
+    // Testing dependencies
+    testImplementation 'junit:junit:4.13.2'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.5'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.5.1'
+}

@@ -11,6 +11,7 @@
     <string name="recalculating_route">Recalculating route</string>
     <string name="download_maps">Download maps</string>
     <string name="offline_maps">Offline maps</string>
+    <string name="search">Search</string>
     
     <!-- Voice Assistant -->
     <string name="voice_assistant">Voice Assistant</string>
@@ -30,6 +31,11 @@
     <string name="now_playing">Now playing</string>
     <string name="browse_music">Browse music</string>
     <string name="playlists">Playlists</string>
+    <string name="album_art">Album Art</string>
+    <string name="play_pause">Play/Pause</string>
+    <string name="next_track">Next Track</string>
+    <string name="previous_track">Previous Track</string>
+    <string name="no_media_found">No media found</string>
     
     <!-- Messaging -->
     <string name="messaging">Messaging</string>
@@ -39,6 +45,9 @@
     <string name="no_messages">No messages</string>
     <string name="message_sent">Message sent</string>
     <string name="message_failed">Failed to send message</string>
+    <string name="type_message">Type a message</string>
+    <string name="send_message">Send message</string>
+    <string name="no_conversations">No conversations</string>
     
     <!-- Settings -->
     <string name="settings">Settings</string>
@@ -61,4 +70,10 @@
     <string name="notification_channel_navigation">Navigation</string>
     <string name="notification_channel_media">Media Playback</string>
     <string name="notification_channel_messaging">Messaging</string>
+    
+    <!-- Accessibility -->
+    <string name="contact_avatar">Contact Avatar</string>
+    <string name="menu_icon">Menu Icon</string>
+    <string name="media_art">Media Art</string>
+    <string name="setting_icon">Setting Icon</string>
 </resources>

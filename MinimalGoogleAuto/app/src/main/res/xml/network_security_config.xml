@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<network-security-config>
+    <!-- Allow only essential Google domains for Android Auto functionality -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">gstatic.com</domain>
+        <domain includeSubdomains="true">googleapis.com</domain>
+        <!-- Strict pin set for Google domains -->
+        <pin-set expiration="2025-12-31">
+            <pin digest="SHA-256">YZPgTZ+woNCCCIW3LH2CxQeLzB/1m42QcCTBSdgayjs=</pin>
+            <pin digest="SHA-256">KwccWaCgrnaw6tsrrSO61FgLacNgG2MMLq8GE6+oP5I=</pin>
+        </pin-set>
+    </domain-config>
+    
+    <!-- Block known Google analytics and tracking domains -->
+    <domain-config cleartextTrafficPermitted="false">
+        <domain includeSubdomains="true">google-analytics.com</domain>
+        <domain includeSubdomains="true">analytics.google.com</domain>
+        <domain includeSubdomains="true">doubleclick.net</domain>
+        <domain includeSubdomains="true">googleadservices.com</domain>
+        <domain includeSubdomains="true">googletagmanager.com</domain>
+        <domain includeSubdomains="true">crashlytics.com</domain>
+        <domain includeSubdomains="true">firebase-settings.crashlytics.com</domain>
+        <trust-anchors>
+            <!-- Empty trust anchors to block these domains -->
+        </trust-anchors>
+    </domain-config>
+    
+    <!-- Default configuration for all other domains -->
+    <base-config cleartextTrafficPermitted="false">
+        <trust-anchors>
+            <certificates src="system" />
+            <certificates src="user" />
+        </trust-anchors>
+    </base-config>
+</network-security-config>

@@ -1,0 +1,196 @@
+1<?xml version="1.0" encoding="utf-8"?>
+2<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+3    package="com.degoogled.androidauto"
+4    android:versionCode="1"
+5    android:versionName="1.0.0" >
+6
+7    <uses-sdk
+8        android:minSdkVersion="26"
+8-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml
+9        android:targetSdkVersion="33" />
+9-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml
+10
+11    <!-- Only request necessary permissions -->
+12    <uses-permission android:name="android.permission.INTERNET" />
+12-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:6:5-67
+12-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:6:22-64
+13    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+13-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:7:5-79
+13-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:7:22-76
+14    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+14-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:8:5-79
+14-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:8:22-76
+15    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+15-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:9:5-81
+15-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:9:22-78
+16    <uses-permission android:name="android.permission.BLUETOOTH" />
+16-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:10:5-68
+16-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:10:22-65
+17    <uses-permission android:name="android.permission.BLUETOOTH_ADMIN" />
+17-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:11:5-74
+17-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:11:22-71
+18    <uses-permission android:name="android.permission.BLUETOOTH_CONNECT" />
+18-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:12:5-76
+18-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:12:22-73
+19    <uses-permission android:name="android.permission.RECORD_AUDIO" /> <!-- For voice assistant -->
+19-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:13:5-71
+19-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:13:22-68
+20    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+20-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:14:5-80
+20-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:14:22-77
+21    <uses-permission
+21-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:15:5-16:38
+22        android:name="android.permission.WRITE_EXTERNAL_STORAGE"
+22-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:15:22-78
+23        android:maxSdkVersion="28" /> <!-- For storing map data -->
+23-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:16:9-35
+24    <uses-permission android:name="android.permission.FOREGROUND_SERVICE" />
+24-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:17:5-77
+24-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:17:22-74
+25    <uses-permission android:name="android.permission.VIBRATE" />
+25-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:18:5-66
+25-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:18:22-63
+26
+27    <uses-feature
+27-->[org.maplibre.gl:android-sdk:10.0.0] /root/.gradle/caches/transforms-3/51e9346688348d65ffa76c5b77a38169/transformed/jetified-android-sdk-10.0.0/AndroidManifest.xml:7:5-9:35
+28        android:glEsVersion="0x00020000"
+28-->[org.maplibre.gl:android-sdk:10.0.0] /root/.gradle/caches/transforms-3/51e9346688348d65ffa76c5b77a38169/transformed/jetified-android-sdk-10.0.0/AndroidManifest.xml:8:9-41
+29        android:required="true" />
+29-->[org.maplibre.gl:android-sdk:10.0.0] /root/.gradle/caches/transforms-3/51e9346688348d65ffa76c5b77a38169/transformed/jetified-android-sdk-10.0.0/AndroidManifest.xml:9:9-32
+30    <uses-feature
+30-->[org.maplibre.gl:android-sdk:10.0.0] /root/.gradle/caches/transforms-3/51e9346688348d65ffa76c5b77a38169/transformed/jetified-android-sdk-10.0.0/AndroidManifest.xml:10:5-12:36
+31        android:name="android.hardware.wifi"
+31-->[org.maplibre.gl:android-sdk:10.0.0] /root/.gradle/caches/transforms-3/51e9346688348d65ffa76c5b77a38169/transformed/jetified-android-sdk-10.0.0/AndroidManifest.xml:11:9-45
+32        android:required="false" />
+32-->[org.maplibre.gl:android-sdk:10.0.0] /root/.gradle/caches/transforms-3/51e9346688348d65ffa76c5b77a38169/transformed/jetified-android-sdk-10.0.0/AndroidManifest.xml:12:9-33
+33
+34    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+34-->[org.maplibre.gl:android-sdk:10.0.0] /root/.gradle/caches/transforms-3/51e9346688348d65ffa76c5b77a38169/transformed/jetified-android-sdk-10.0.0/AndroidManifest.xml:16:5-76
+34-->[org.maplibre.gl:android-sdk:10.0.0] /root/.gradle/caches/transforms-3/51e9346688348d65ffa76c5b77a38169/transformed/jetified-android-sdk-10.0.0/AndroidManifest.xml:16:22-73
+35
+36    <permission
+36-->[androidx.core:core:1.9.0] /root/.gradle/caches/transforms-3/c73afc1fa215d9ca128620a3c01802b0/transformed/core-1.9.0/AndroidManifest.xml:22:5-24:47
+37        android:name="com.degoogled.androidauto.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION"
+37-->[androidx.core:core:1.9.0] /root/.gradle/caches/transforms-3/c73afc1fa215d9ca128620a3c01802b0/transformed/core-1.9.0/AndroidManifest.xml:23:9-81
+38        android:protectionLevel="signature" />
+38-->[androidx.core:core:1.9.0] /root/.gradle/caches/transforms-3/c73afc1fa215d9ca128620a3c01802b0/transformed/core-1.9.0/AndroidManifest.xml:24:9-44
+39
+40    <uses-permission android:name="com.degoogled.androidauto.DYNAMIC_RECEIVER_NOT_EXPORTED_PERMISSION" />
+40-->[androidx.core:core:1.9.0] /root/.gradle/caches/transforms-3/c73afc1fa215d9ca128620a3c01802b0/transformed/core-1.9.0/AndroidManifest.xml:26:5-97
+40-->[androidx.core:core:1.9.0] /root/.gradle/caches/transforms-3/c73afc1fa215d9ca128620a3c01802b0/transformed/core-1.9.0/AndroidManifest.xml:26:22-94
+41
+42    <supports-screens
+42-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:9:5-12:40
+43        android:anyDensity="true"
+43-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:10:9-34
+44        android:largeScreens="true"
+44-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:11:9-36
+45        android:normalScreens="true" />
+45-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:12:9-37
+46
+47    <uses-feature
+47-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:14:5-16:36
+48        android:name="android.hardware.location.network"
+48-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:15:9-57
+49        android:required="false" />
+49-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:16:9-33
+50    <uses-feature
+50-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:17:5-19:36
+51        android:name="android.hardware.location.gps"
+51-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:18:9-53
+52        android:required="false" />
+52-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:19:9-33
+53    <uses-feature
+53-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:20:5-22:36
+54        android:name="android.hardware.telephony"
+54-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:21:9-50
+55        android:required="false" />
+55-->[org.osmdroid:osmdroid-android:6.1.16] /root/.gradle/caches/transforms-3/cb73564715f54f3cadacf9a99e256070/transformed/jetified-osmdroid-android-6.1.16/AndroidManifest.xml:22:9-33
+56
+57    <application
+57-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:20:5-40:19
+58        android:allowBackup="true"
+58-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:21:9-35
+59        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
+59-->[androidx.core:core:1.9.0] /root/.gradle/caches/transforms-3/c73afc1fa215d9ca128620a3c01802b0/transformed/core-1.9.0/AndroidManifest.xml:28:18-86
+60        android:extractNativeLibs="false"
+61        android:icon="@mipmap/ic_launcher"
+61-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:22:9-43
+62        android:label="@string/app_name"
+62-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:23:9-41
+63        android:roundIcon="@mipmap/ic_launcher_round"
+63-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:24:9-54
+64        android:supportsRtl="true"
+64-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:25:9-35
+65        android:theme="@style/Theme.DegoogledAndroidAuto"
+65-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:26:9-58
+66        android:usesCleartextTraffic="false" >
+66-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:27:9-45
+67        <activity
+67-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:29:9-38:20
+68            android:name="com.degoogled.androidauto.simplified.MainActivity"
+68-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:30:13-52
+69            android:exported="true"
+69-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:31:13-36
+70            android:screenOrientation="landscape"
+70-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:32:13-50
+71            android:theme="@style/Theme.DegoogledAndroidAuto.NoActionBar" >
+71-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:33:13-74
+72            <intent-filter>
+72-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:34:13-37:29
+73                <action android:name="android.intent.action.MAIN" />
+73-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:35:17-69
+73-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:35:25-66
+74
+75                <category android:name="android.intent.category.LAUNCHER" />
+75-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:36:17-77
+75-->/workspace/DegoogledAndroidAuto/app/src/main/AndroidManifest.xml:36:27-74
+76            </intent-filter>
+77        </activity>
+78
+79        <uses-library
+79-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:25:9-27:40
+80            android:name="androidx.window.extensions"
+80-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:26:13-54
+81            android:required="false" />
+81-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:27:13-37
+82        <uses-library
+82-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:28:9-30:40
+83            android:name="androidx.window.sidecar"
+83-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:29:13-51
+84            android:required="false" />
+84-->[androidx.window:window:1.0.0] /root/.gradle/caches/transforms-3/1b199d5916bf65ae114c0d9e6527f3a1/transformed/jetified-window-1.0.0/AndroidManifest.xml:30:13-37
+85
+86        <service
+86-->[androidx.room:room-runtime:2.5.0] /root/.gradle/caches/transforms-3/431c5bb822249be0c6da970373422274/transformed/room-runtime-2.5.0/AndroidManifest.xml:24:9-28:63
+87            android:name="androidx.room.MultiInstanceInvalidationService"
+87-->[androidx.room:room-runtime:2.5.0] /root/.gradle/caches/transforms-3/431c5bb822249be0c6da970373422274/transformed/room-runtime-2.5.0/AndroidManifest.xml:25:13-74
+88            android:directBootAware="true"
+88-->[androidx.room:room-runtime:2.5.0] /root/.gradle/caches/transforms-3/431c5bb822249be0c6da970373422274/transformed/room-runtime-2.5.0/AndroidManifest.xml:26:13-43
+89            android:exported="false" />
+89-->[androidx.room:room-runtime:2.5.0] /root/.gradle/caches/transforms-3/431c5bb822249be0c6da970373422274/transformed/room-runtime-2.5.0/AndroidManifest.xml:27:13-37
+90
+91        <provider
+91-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:24:9-32:20
+92            android:name="androidx.startup.InitializationProvider"
+92-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:25:13-67
+93            android:authorities="com.degoogled.androidauto.androidx-startup"
+93-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:26:13-68
+94            android:exported="false" >
+94-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:27:13-37
+95            <meta-data
+95-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:29:13-31:52
+96                android:name="androidx.emoji2.text.EmojiCompatInitializer"
+96-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:30:17-75
+97                android:value="androidx.startup" />
+97-->[androidx.emoji2:emoji2:1.2.0] /root/.gradle/caches/transforms-3/8a0777f78bcfa47490aa03185cd86673/transformed/jetified-emoji2-1.2.0/AndroidManifest.xml:31:17-49
+98            <meta-data
+98-->[androidx.lifecycle:lifecycle-process:2.4.1] /root/.gradle/caches/transforms-3/1d96e2c00249b5a696793deadf4ca594/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:31:13-33:52
+99                android:name="androidx.lifecycle.ProcessLifecycleInitializer"
+99-->[androidx.lifecycle:lifecycle-process:2.4.1] /root/.gradle/caches/transforms-3/1d96e2c00249b5a696793deadf4ca594/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:32:17-78
+100                android:value="androidx.startup" />
+100-->[androidx.lifecycle:lifecycle-process:2.4.1] /root/.gradle/caches/transforms-3/1d96e2c00249b5a696793deadf4ca594/transformed/jetified-lifecycle-process-2.4.1/AndroidManifest.xml:33:17-49
+101        </provider>
+102    </application>
+103
+104</manifest>

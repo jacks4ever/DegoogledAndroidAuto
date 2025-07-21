@@ -1,0 +1,149 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="background_dark">#121212</color>
+    <color name="background_light">#FAFAFA</color>
+    <color name="colorAccent">#FFC107</color>
+    <color name="colorAccentDark">#FFA000</color>
+    <color name="colorAccentLight">#FFECB3</color>
+    <color name="colorPrimary">#1E88E5</color>
+    <color name="colorPrimaryDark">#1565C0</color>
+    <color name="colorPrimaryLight">#64B5F6</color>
+    <color name="error">#B00020</color>
+    <color name="ic_launcher_background">#3F51B5</color>
+    <color name="info">#2196F3</color>
+    <color name="privacy_disabled">#F44336</color>
+    <color name="privacy_enabled">#4CAF50</color>
+    <color name="success">#4CAF50</color>
+    <color name="surface_dark">#1E1E1E</color>
+    <color name="surface_light">#FFFFFF</color>
+    <color name="text_hint">#BDBDBD</color>
+    <color name="text_primary">#212121</color>
+    <color name="text_secondary">#757575</color>
+    <color name="warning">#FF9800</color>
+    <string name="app_description">A privacy-focused Android Auto alternative with minimal Google dependencies</string>
+    <string name="app_name">Minimal Google Auto</string>
+    <string name="august_lock">August Lock</string>
+    <string name="back">Back</string>
+    <string name="block_all_google_analytics">Block all Google analytics</string>
+    <string name="block_all_google_analytics_description">Prevent all analytics and tracking data from being sent to Google</string>
+    <string name="connect_to_car">Connect to Car</string>
+    <string name="connected">Connected</string>
+    <string name="connecting">Connecting…</string>
+    <string name="connection_status">Connection Status</string>
+    <string name="current_location">Current location</string>
+    <string name="disconnect_from_car">Disconnect from Car</string>
+    <string name="error_connection_failed">Connection to car failed</string>
+    <string name="error_google_services_required">Minimal Google services required for car connection</string>
+    <string name="error_network_unavailable">Network unavailable</string>
+    <string name="error_permission_required">Required permission not granted</string>
+    <string name="features">Features</string>
+    <string name="handcent_sms">Handcent SMS</string>
+    <string name="home_automation">Home Automation</string>
+    <string name="install_august">Install August</string>
+    <string name="install_handcent">Install Handcent</string>
+    <string name="install_teams">Install Teams</string>
+    <string name="install_waze">Install Waze</string>
+    <string name="install_whatsapp">Install WhatsApp</string>
+    <string name="installed">Installed</string>
+    <string name="launch_august">Launch August</string>
+    <string name="launch_handcent">Launch Handcent</string>
+    <string name="launch_teams">Launch Teams</string>
+    <string name="launch_waze">Launch Waze Navigation</string>
+    <string name="launch_whatsapp">Launch WhatsApp</string>
+    <string name="listening">Listening…</string>
+    <string name="lock_door">Lock Door</string>
+    <string name="media">Media</string>
+    <string name="messaging">Messaging</string>
+    <string name="microsoft_teams">Microsoft Teams</string>
+    <string name="minimal_google_auth">Minimal Google authentication</string>
+    <string name="minimal_google_auth_description">Use only essential Google authentication for Android Auto protocol</string>
+    <string name="navigation">Navigation</string>
+    <string name="network_monitoring">Network monitoring</string>
+    <string name="network_monitoring_description">Monitor and log all network requests</string>
+    <string name="new_message">New message</string>
+    <string name="next">Next</string>
+    <string name="no_media">No media playing</string>
+    <string name="not_connected">Not Connected</string>
+    <string name="not_installed">Not Installed</string>
+    <string name="notification_channel_connection">Connection Status</string>
+    <string name="notification_channel_media">Media Playback</string>
+    <string name="notification_channel_messaging">Messaging</string>
+    <string name="notification_channel_navigation">Navigation</string>
+    <string name="notification_channel_voice">Voice Assistant</string>
+    <string name="offline_mode">Offline mode</string>
+    <string name="offline_mode_description">Use only offline features (requires downloaded maps)</string>
+    <string name="osm_maps">OpenStreetMap</string>
+    <string name="pause">Pause</string>
+    <string name="play">Play</string>
+    <string name="previous">Previous</string>
+    <string name="privacy_mode">Privacy Mode</string>
+    <string name="privacy_mode_description">Control what data is shared with Google services</string>
+    <string name="privacy_protection">Privacy Protection</string>
+    <string name="privacy_settings">Privacy Settings</string>
+    <string name="reply">Reply</string>
+    <string name="search_destination">Search destination</string>
+    <string name="send">Send</string>
+    <string name="settings">Settings</string>
+    <string name="start_navigation">Start navigation</string>
+    <string name="stop_navigation">Stop navigation</string>
+    <string name="tap_to_speak">Tap to speak</string>
+    <string name="unlock_door">Unlock Door</string>
+    <string name="view_activity">View Activity</string>
+    <string name="voice">Voice Assistant</string>
+    <string name="voice_command_hint">Say a command…</string>
+    <string name="waze">Waze</string>
+    <string name="waze_description">Use Waze for navigation with privacy protections enabled. All analytics and tracking will be blocked while maintaining full navigation functionality.</string>
+    <string name="waze_installed">Waze is installed</string>
+    <string name="waze_navigation">Waze Navigation</string>
+    <string name="waze_not_installed">Waze is not installed</string>
+    <string name="waze_privacy_description">Block Waze analytics and tracking while allowing essential navigation features</string>
+    <string name="waze_privacy_disabled">Privacy protection disabled</string>
+    <string name="waze_privacy_enabled">Privacy protection enabled</string>
+    <string name="waze_privacy_protection">Waze Privacy Protection</string>
+    <string name="whatsapp">WhatsApp</string>
+    <style name="TextAppearance.MinimalGoogleAuto.Body" parent="TextAppearance.MaterialComponents.Body1">
+        <item name="android:textSize">16sp</item>
+    </style>
+    <style name="TextAppearance.MinimalGoogleAuto.Caption" parent="TextAppearance.MaterialComponents.Caption">
+        <item name="android:textSize">14sp</item>
+    </style>
+    <style name="TextAppearance.MinimalGoogleAuto.Headline" parent="TextAppearance.MaterialComponents.Headline4">
+        <item name="android:textSize">24sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="TextAppearance.MinimalGoogleAuto.Title" parent="TextAppearance.MaterialComponents.Headline6">
+        <item name="android:textSize">20sp</item>
+        <item name="android:textStyle">bold</item>
+    </style>
+    <style name="Theme.MinimalGoogleAuto" parent="Theme.MaterialComponents.DayNight.NoActionBar">
+        
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryVariant">@color/colorPrimaryDark</item>
+        <item name="colorOnPrimary">@android:color/white</item>
+        
+        
+        <item name="colorSecondary">@color/colorAccent</item>
+        <item name="colorSecondaryVariant">@color/colorAccentDark</item>
+        <item name="colorOnSecondary">@color/text_primary</item>
+        
+        
+        <item name="android:statusBarColor">@color/colorPrimaryDark</item>
+        
+        
+        <item name="android:textColorPrimary">@color/text_primary</item>
+        <item name="android:textColorSecondary">@color/text_secondary</item>
+        <item name="android:textColorHint">@color/text_hint</item>
+        
+        
+        <item name="materialButtonStyle">@style/Widget.MinimalGoogleAuto.Button</item>
+    </style>
+    <style name="Widget.MinimalGoogleAuto.Button" parent="Widget.MaterialComponents.Button">
+        <item name="android:textSize">16sp</item>
+        <item name="android:padding">12dp</item>
+        <item name="cornerRadius">8dp</item>
+    </style>
+    <style name="Widget.MinimalGoogleAuto.Switch" parent="Widget.MaterialComponents.CompoundButton.Switch">
+        <item name="thumbTint">@color/colorAccent</item>
+        <item name="trackTint">@color/colorPrimaryLight</item>
+    </style>
+</resources>
